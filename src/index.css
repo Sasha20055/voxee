@@ -1,68 +1,312 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-a {
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-MediumItalic.woff2') format('woff2');
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  font-style: italic;
+  font-display: swap;
 }
-a:hover {
-  color: #535bf2;
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
 }
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-SemiBoldItalic.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-LightItalic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-ExtraBoldItalic.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-BlackItalic.woff2') format('woff2');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-BoldItalic.woff2') format('woff2');
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-ThinItalic.woff2') format('woff2');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-ExtraLightItalic.woff2') format('woff2');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-ExtraBold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('./assets/fonts/Nano-sans/NotoSans-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+
 
 body {
+  font-family: 'Noto Sans';
+  font-weight: normal;
+  font-style: normal;
+  background-color: white;
+  height: 100vh;
+}
+
+.MuiContainer-root {
+  padding: 0;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  overflow: hidden;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.appStoreSvg {
+  background: url("./assets/marketplaces/appStore.svg") 50% 50% no-repeat;
+  background-size: 186px;
+  padding: 35px 95px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+.googlePlaySvg {
+  background: url("./assets/marketplaces/googlePlay.svg") 50% 50% no-repeat;
+  background-size: 186px;
+  padding: 35px 95px;
+}
+
+.firstPreviewImg {
+  background: url("./assets/imgs/img1.webp") 50% 50% no-repeat;
+  background-size: 1200px;
+  padding: 380px 600px;
+}
+
+.MuiBox-root.firstSection {
+  border-radius: 30px;
+  margin: 30px;
+  background: linear-gradient(
+          90deg,                           /* направление слева направо */
+          rgba(188, 218, 243, 0.61) 0%,    /* #BCDAF3 с 61% прозрачностью */
+          rgba(220, 247, 251, 0.68) 45%,   /* #DCF7FB с 68% прозрачностью */
+          rgba(196, 246, 251, 0.43) 100%   /* #C4F6FB с 43% прозрачностью */
+  );
+}
+
+button.MuiButton-textPrimary {
+  font-family: 'Noto Sans';
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  font-style: normal;
+  font-size: 16px;
+  color: #292E3C;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+button.active {
+  font-weight: bold;
+}
+
+.button.active::after {
+  content: "";
+  position: absolute;
+  left: 8px;              /* отступы от текста */
+  right: 8px;
+  bottom: 0px;           /* смещение вниз */
+  height: 6px;            /* толщина полосы */
+  background: linear-gradient(
+          90deg,
+          rgb(173,216,230),
+          rgb(176,224,230),
+          rgb(221,241,250),
+          rgb(200,200,255)
+  );
+  border-bottom-left-radius: 999px;   /* круглыe концы */
+  border-bottom-right-radius: 999px;
+  pointer-events: none;   /* не ловит клики */
+}
+
+h1.MuiTypography-root {
+  font-family: 'Noto Sans';
+  font-weight: bold;
+  font-style: normal;
+  font-size: 70px;
+  color: #272B37;
+}
+
+h2.MuiTypography-root {
+  font-family: 'Noto Sans';
+  font-weight: bold;
+  font-style: normal;
+  font-size: 60px;
+}
+
+h4.MuiTypography-root {
+  font-family: 'Noto Sans';
+  font-weight: bold;
+  font-style: normal;
+  font-size: 26px;
+  color: #272B37;
+}
+
+p.MuiTypography-root {
+  font-family: 'Noto Sans';
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
+  color: #7E8891;
+}
+
+span.MuiTypography-root {
+  font-family: 'Noto Sans';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
+  color: #7E8891;
+}
+
+
+.blob-root{
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 9999;
+  background: transparent;
+}
+
+
+.blob{
+  position: absolute;
+  left: -50%; top: -50%;
+  border-radius: 50%;
+  will-change: transform, filter;
+  mix-blend-mode: screen;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .blob{ transition: none !important; transform: translate3d(50vw, 50vh, 0) scale(1) !important; }
+}
+
+@media screen and (max-width: 1000px){
+  h1.MuiTypography-root {
+    font-size: 30px;
   }
-  a:hover {
-    color: #747bff;
+  h2.MuiTypography-root {
+    font-size: 26px;
   }
-  button {
-    background-color: #f9f9f9;
+  h4.MuiTypography-root {
+    font-size: 18px;
+  }
+  p.MuiTypography-root {
+    font-size: 16px;
+  }
+  span.MuiTypography-root {
+    font-size: 12px;
+  }
+  button.MuiButton-textPrimary {
+    font-size: 12px;
+  }
+  .firstPreviewImg {
+    background-size: 400px;
+    padding: 130px 200px;
+  }
+}
+
+@media screen and (max-width: 1110px){
+  button.MuiButton-textPrimary {
+    padding: 0;
   }
 }
