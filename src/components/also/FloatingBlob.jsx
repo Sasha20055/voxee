@@ -1,30 +1,36 @@
 import { useEffect, useRef, useState } from "react";
-import '../../index.css'
+import { createPortal } from "react-dom";
 
 export default function FloatingBlob({
-                                         size = 420,             // базовый размер круга в px
-                                         blur = 120,             // степень блюра в px
-                                         color = "rgba(120, 180, 255, 0.75)", // цвет «ядра» круга
-                                         fade = 0.15,            // прозрачность краёв
-                                         minSec = 18,            // минимальная длительность перелёта (сек)
-                                         maxSec = 32,            // максимальная длительность перелёта (сек)
+                                         size = 420,
+                                         blur = 120,
+                                         color = "rgba(120,180,255,0.75)",
+                                         fade = 0.15,
+                                         minSec = 18,
+                                         maxSec = 32,
                                      }) {
     const ref = useRef(null);
     const [style, setStyle] = useState({ transform: "translate3d(0,0,0)" });
+    const [vw, setVw] = useState(window.innerWidth);
 
-    // случайная позиция так, чтобы круг полностью помещался в окне
+    const pageHeight = () => {
+        const doc = document.documentElement;
+        const body = document.body;
+        return Math.max(doc.scrollHeight, doc.clientHeight, body?.scrollHeight || 0);
+    };
+
     const randomTarget = () => {
-        const w = window.innerWidth;
-        const h = window.innerHeight;
         const s = size;
-        const x = Math.random() * (w - s) + s / 2;
-        const y = Math.random() * (h - s) + s / 2;
+        const xMin = s / 2, xMax = Math.max(xMin, vw - s / 2);
+        const yMin = s / 2, yMax = Math.max(yMin, pageHeight() - s / 2);
+        const x = Math.random() * (xMax - xMin) + xMin;
+        const y = Math.random() * (yMax - yMin) + yMin;
         return { x, y };
     };
 
     const move = () => {
         const { x, y } = randomTarget();
-        const dur = (minSec + Math.random() * (maxSec - minSec)).toFixed(2);
+        const dur = +(minSec + Math.random() * (maxSec - minSec)).toFixed(2);
         setStyle({
             transform: `translate3d(${x}px, ${y}px, 0) scale(${0.95 + Math.random() * 0.1})`,
             transition: `transform ${dur}s cubic-bezier(.22,.61,.36,1)`,
@@ -32,23 +38,40 @@ export default function FloatingBlob({
     };
 
     useEffect(() => {
-        // начальная позиция и старт
         move();
-        // новое направление после завершения каждой анимации
-        const el = ref.current;
-        const handler = () => move();
-        el?.addEventListener("transitionend", handler);
-        // адаптация к ресайзу
-        const onResize = () => move();
-        window.addEventListener("resize", onResize);
-        return () => {
-            el?.removeEventListener("transitionend", handler);
-            window.removeEventListener("resize", onResize);
-        };
-    }, []); // один раз
 
-    return (
-        <div className="blob-root" aria-hidden>
+        const el = ref.current;
+        const onEnd = () => move();
+        el?.addEventListener("transitionend", onEnd);
+
+
+        let raf = 0;
+        const onResize = () => {
+            cancelAnimationFrame(raf);
+            raf = requestAnimationFrame(() => {
+                setVw(window.innerWidth);
+
+                setStyle(prev => {
+                    const m = /translate3d\(([-\d.]+)px,\s*([-\d.]+)px/.exec(String(prev.transform));
+                    const curX = m ? parseFloat(m[1]) : 0;
+                    const curY = m ? parseFloat(m[2]) : 0;
+                    const xMin = size / 2, xMax = Math.max(xMin, window.innerWidth - size / 2);
+                    const clampedX = Math.min(Math.max(curX, xMin), xMax);
+                    return { ...prev, transform: `translate3d(${clampedX}px, ${curY}px, 0)` };
+                });
+            });
+        };
+        window.addEventListener("resize", onResize);
+
+        return () => {
+            el?.removeEventListener("transitionend", onEnd);
+            window.removeEventListener("resize", onResize);
+            cancelAnimationFrame(raf);
+        };
+    }, []);
+
+    return createPortal(
+        <div className="blob-page-root" aria-hidden>
             <div
                 ref={ref}
                 className="blob"
@@ -56,11 +79,11 @@ export default function FloatingBlob({
                     ...style,
                     width: size,
                     height: size,
-                    // цвет ядра + мягкие края через radial-gradient
                     background: `radial-gradient(circle, ${color} 0%, rgba(0,0,0,${fade}) 70%, transparent 100%)`,
                     filter: `blur(${blur}px)`,
                 }}
             />
-        </div>
+        </div>,
+        document.body
     );
 }

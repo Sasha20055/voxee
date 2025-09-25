@@ -8,15 +8,46 @@ import MenuIconImg from "../assets/also/menuIconOpen.svg";
 import MenuIconCloseImg from "../assets/also/menuIconClose.svg";
 import ChangeLaguage from "./language/ChangeLaguage.jsx";
 
+
 const pages = ["Languages", "Why Voxee", "Exercises", "Support & Safety", "FAQ"];
+
+
+const anchors = {
+    "Languages":       "languagesSection",
+    "Why Voxee":       "whyVoxeeSection",
+    "Exercises":       "exercisesSection",
+    "Support & Safety":"supportSection",
+    "FAQ":             "faqSection",
+};
 
 function ResponsiveAppBar() {
     const [activePage, setActivePage] = React.useState(null);
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const toggleMobile = () => setMobileOpen((v) => !v);
+
+    // Плавный скролл с учётом высоты AppBar
+    const scrollToId = React.useCallback((id) => {
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        // измерим реальную высоту шапки (может меняться на брейкпойнтах)
+        const appbar = document.querySelector("header.MuiAppBar-root");
+        const offset = appbar ? appbar.getBoundingClientRect().height : 0;
+
+        const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const top = el.getBoundingClientRect().top + window.scrollY - offset - 8;
+
+        window.scrollTo({
+            top,
+            behavior: prefersReduced ? "auto" : "smooth",
+        });
+    }, []);
+
     const onClickPage = (page) => {
         setActivePage(page);
+        const id = anchors[page];
+        if (id) scrollToId(id);
         setMobileOpen(false);
     };
 
@@ -25,7 +56,7 @@ function ResponsiveAppBar() {
             <Container maxWidth="xl">
                 <Toolbar
                     disableGutters
-                    sx={{ m: "40px 40px 0 40px", bgcolor: "white", px: "46px", py: "10px", borderRadius: 2 }}
+                    sx={{ m: { xs: "20px 5px", md: "40px 40px 0 40px"}, bgcolor: "white", px: "46px", py: "10px",   borderRadius: {xs: "25px", md: "50px"} }}
                 >
 
                     <Typography
@@ -41,7 +72,7 @@ function ResponsiveAppBar() {
 
                     <Typography
                         component="a"
-                        href="#top"
+                        href="#homeSection"
                         sx={{
                             mr: 2,
                             display: { xs: "flex", md: "none" },
@@ -110,13 +141,13 @@ function ResponsiveAppBar() {
 
                 {/* Панель мобильного меню — выезжает вниз */}
                 <Collapse sx={{ position: 'relative',
-                    top: '-20px',}} in={mobileOpen} timeout={350} unmountOnExit>
+                    top: '-40px',}} in={mobileOpen} timeout={350} unmountOnExit>
                     <Box
                         sx={{
-                            mx: "40px",
-                            mb: 3,
+                            margin:{ xs: "0 5px", md: "0 40px" },
                             px: "46px",
                             py: 2,
+                            borderRadius: '0 0 25px 25px',
                             bgcolor: "white",
                             display: { xs: "block", md: "none" },
                         }}

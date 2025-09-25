@@ -112,18 +112,18 @@ export default function LanguageSelect() {
                         disableRipple
                         selected={current.code === l.code}
                         sx={{
-                            py: 1,
-                            "&:hover,&.Mui-selected,&.Mui-selected:hover": {
-                                backgroundColor: "transparent",
-                            },
+                            py: 1
                         }}
                     >
-                        <ListItemIcon sx={{ minWidth: 34 }}>
+                        <ListItemIcon sx={{ minWidth: 34, color: 'black' }}>
                             <span style={{ fontSize: 20, lineHeight: 1 }}>{FLAGS[l.code]}</span>
                         </ListItemIcon>
                         <ListItemText
                             primary={l.label}
-                            primaryTypographyProps={{ fontWeight: current.code === l.code ? 700 : 500 }}
+                            primaryTypographyProps={{
+                                fontWeight: current.code === l.code ? 700 : 500,
+                                color: "black !important",
+                            }}
                         />
                     </MenuItem>
                 ))}

@@ -142,14 +142,15 @@
   font-display: swap;
 }
 
-
+html:focus-within {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: 'Noto Sans';
   font-weight: normal;
   font-style: normal;
   background-color: white;
-  height: 100vh;
 }
 
 .MuiContainer-root {
@@ -162,12 +163,20 @@ body {
   background: url("./assets/marketplaces/appStore.svg") 50% 50% no-repeat;
   background-size: 186px;
   padding: 35px 95px;
+  cursor: pointer;
 }
 
 .googlePlaySvg {
   background: url("./assets/marketplaces/googlePlay.svg") 50% 50% no-repeat;
   background-size: 186px;
   padding: 35px 95px;
+  cursor: pointer;
+}
+
+.googlePlaySvg.footer, .appStoreSvg.footer {
+  background-size: 166px;
+  padding: 35px 80px;
+  margin: 0;
 }
 
 .firstPreviewImg {
@@ -176,15 +185,26 @@ body {
   padding: 380px 600px;
 }
 
-.MuiBox-root.firstSection {
+.lastPreviewImg {
+  background: url("./assets/imgs/img2.webp") 50% 50% no-repeat;
+  background-size: 488px;
+  padding: 300px 250px;
+}
+
+.MuiBox-root.firstSection, .MuiBox-root.fiveSection, .MuiBox-root.footerSection {
   border-radius: 30px;
   margin: 30px;
   background: linear-gradient(
-          90deg,                           /* направление слева направо */
-          rgba(188, 218, 243, 0.61) 0%,    /* #BCDAF3 с 61% прозрачностью */
-          rgba(220, 247, 251, 0.68) 45%,   /* #DCF7FB с 68% прозрачностью */
-          rgba(196, 246, 251, 0.43) 100%   /* #C4F6FB с 43% прозрачностью */
+          90deg,
+          rgba(188, 218, 243, 0.61) 0%,
+          rgba(220, 247, 251, 0.68) 45%,
+          rgba(196, 246, 251, 0.43) 100%
   );
+}
+
+
+.section {
+  margin: 0 30px;
 }
 
 button.MuiButton-textPrimary {
@@ -202,10 +222,10 @@ button.active {
 .button.active::after {
   content: "";
   position: absolute;
-  left: 8px;              /* отступы от текста */
+  left: 8px;
   right: 8px;
-  bottom: 0px;           /* смещение вниз */
-  height: 6px;            /* толщина полосы */
+  bottom: 0px;
+  height: 6px;
   background: linear-gradient(
           90deg,
           rgb(173,216,230),
@@ -213,9 +233,9 @@ button.active {
           rgb(221,241,250),
           rgb(200,200,255)
   );
-  border-bottom-left-radius: 999px;   /* круглыe концы */
+  border-bottom-left-radius: 999px;
   border-bottom-right-radius: 999px;
-  pointer-events: none;   /* не ловит клики */
+  pointer-events: none;
 }
 
 h1.MuiTypography-root {
@@ -233,15 +253,15 @@ h2.MuiTypography-root {
   font-size: 60px;
 }
 
-h4.MuiTypography-root {
+h4.MuiTypography-root, h4 {
   font-family: 'Noto Sans';
-  font-weight: bold;
+  font-weight: 600;
   font-style: normal;
   font-size: 26px;
   color: #272B37;
 }
 
-p.MuiTypography-root {
+p.MuiTypography-root, li.MuiTypography-root {
   font-family: 'Noto Sans';
   font-weight: 500;
   font-style: normal;
@@ -255,25 +275,65 @@ span.MuiTypography-root {
   font-style: normal;
   font-size: 16px;
   color: #7E8891;
+  text-decoration: none;
 }
 
+.MuiPaper-root .MuiCardContent-root {
+  padding: 0;
+  margin: 10px 0 0 0;
 
-.blob-root{
-  position: fixed;
-  inset: 0;
+}
+
+.fiveSection .MuiPaper-root .MuiCardContent-root {
+  margin: 0;
+  padding: 16px 23px;
+  background: #F6F8FB;
+  width: 100%;
+  border-radius: 14px;
+}
+
+main.page-root {
+  position: relative;
   overflow: hidden;
-  pointer-events: none;
-  z-index: 9999;
-  background: transparent;
 }
 
-
-.blob{
+.blob-page-root {
   position: absolute;
-  left: -50%; top: -50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  pointer-events: none;
+  z-index: 50;
+  overflow-y: visible;
+  overflow-x: clip;
+}
+@supports not (overflow-x: clip) {
+  .blob-page-root { overflow-x: hidden; }
+}
+
+.blob {
+  position: absolute;
   border-radius: 50%;
-  will-change: transform, filter;
-  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+.MuiGrid-root .card {
+  height: 100%;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.fiveSection .MuiGrid-root .card {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+}
+
+.MuiBox-root.fiveSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -281,16 +341,20 @@ span.MuiTypography-root {
 }
 
 @media screen and (max-width: 1000px){
+  .section {
+    margin: 0 6px !important;
+    padding: 0 !important;
+  }
   h1.MuiTypography-root {
     font-size: 30px;
   }
   h2.MuiTypography-root {
     font-size: 26px;
   }
-  h4.MuiTypography-root {
+  h4.MuiTypography-root, h4 {
     font-size: 18px;
   }
-  p.MuiTypography-root {
+  p.MuiTypography-root, li.MuiTypography-root {
     font-size: 16px;
   }
   span.MuiTypography-root {
@@ -303,10 +367,22 @@ span.MuiTypography-root {
     background-size: 400px;
     padding: 130px 200px;
   }
+  .lastPreviewImg {
+    background-size: 300px;
+    padding: 190px 150px;
+  }
 }
 
 @media screen and (max-width: 1110px){
   button.MuiButton-textPrimary {
     padding: 0;
+  }
+}
+
+@media screen and (max-width: 1220px){
+  .googlePlaySvg.footer, .appStoreSvg.footer {
+    background-size: 132px;
+    padding: 25px 65px;
+    margin: 0;
   }
 }

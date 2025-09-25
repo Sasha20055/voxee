@@ -1,15 +1,13 @@
 import './FirstSectionComponent.module.css'
 import {Box, Container, SvgIcon, Typography} from "@mui/material";
 import CardSvg from "../../assets/also/card.svg";
-import AppStoreSvg from "../../assets/marketplaces/appStore.svg";
-import GooglePlaySvg from "../../assets/marketplaces/googlePlay.svg";
 import * as React from "react";
 import ResponsiveNav from "../HeaderComponent.jsx";
 
 
-function FirstSectionComponent() {
+const FirstSectionComponent = () => {
     return (
-        <Box sx={{margin: '0 30px'}} className="firstSection">
+        <Box id="homeSection" className="firstSection section">
             <ResponsiveNav/>
             <Container maxWidth="xl" sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '20px', padding: '50px 20px'}}>
                 <Typography component="h1" sx={{textAlign: 'center', width: {xs: '100%', md: '80% '}}}>Voxee — Learn languages by practicing  with AI</Typography>
@@ -20,9 +18,9 @@ function FirstSectionComponent() {
                     </SvgIcon>
                     <span style={{color: 'rgba(39, 43, 55, 0.54)'}}>Start with free credits — try every exercise. No card required.</span>
                 </Box>
-                <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px'}}>
-                    <Box className="appStoreSvg"/>
-                    <Box className="googlePlaySvg"/>
+                <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', flexWrap: 'wrap'}}>
+                    <a href="https://www.apple.com/app-store/" target="_blank" className="appStoreSvg"/>
+                    <a href="https://play.google.com/" target="_blank" className="googlePlaySvg"/>
                 </Box>
                 <Box className="firstPreviewImg"/>
             </Container>
