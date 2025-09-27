@@ -1,4 +1,3 @@
-// FaqAccordion.tsx
 import * as React from "react";
 import {
     Accordion as MuiAccordion,
@@ -7,10 +6,13 @@ import {
     accordionSummaryClasses,
     Box,
     Typography,
-    Stack,
+    Stack, SvgIcon,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
+import ArrowIcon from "../../assets/also/arrowLang.svg";
+import ArrowIcon2 from "../../assets/also/arrowLang2.svg";
+import {Squircle} from "@squircle-js/react";
 
 const DATA = [
     { q: "Is there a free trial period?", a: "Yes — you start with a free balance to try every exercise. No card required." },
@@ -20,14 +22,9 @@ const DATA = [
     { q: "How do I contact support?", a: "In-app Help & Feedback or email support@voxee.app." },
 ];
 
-/** Цвета/радиусы под макет */
-const ACC_BG_BASE  = "rgba(6,20,38,.04)";
-const ACC_BG_OPEN  = "rgba(6,20,38,.08)";
-const BODY_BG      = "#F6F8FB";
-const RADIUS_OUTER = 24;
-const RADIUS_INNER = 16;
+const ACC_BG_BASE  = "#F6F8FB";
+const ACC_BG_OPEN  = "#F6F8FB";
 
-/** Корень аккордеона без собственных фонов/теней */
 const Accordion = styled(MuiAccordion)(() => ({
     border: "none",
     boxShadow: "none",
@@ -37,11 +34,8 @@ const Accordion = styled(MuiAccordion)(() => ({
     "&:last-of-type": { marginBottom: 0 },
 }));
 
-/** Шапка вопроса */
 const Summary = styled(MuiSummary)(({ theme }) => ({
-    padding: '0 30px',
     minHeight: 84,
-    borderRadius: RADIUS_OUTER,
     background: ACC_BG_BASE,
     transition: "background .2s ease",
     flexDirection: "row",
@@ -53,7 +47,6 @@ const Summary = styled(MuiSummary)(({ theme }) => ({
         marginLeft: "auto",
         width: 48,
         height: 48,
-        borderRadius: 12,
         display: "grid",
         placeItems: "center",
         transition: "transform .25s ease",
@@ -67,8 +60,6 @@ const Summary = styled(MuiSummary)(({ theme }) => ({
 const Details = styled(MuiDetails)(({ theme }) => ({
     marginTop: theme.spacing(1.5),
     padding: theme.spacing(2.25, 2.75),
-    borderRadius: RADIUS_INNER,
-    border: '4px solid #F6F8FB',
     lineHeight: 1.6,
     color: theme.palette.text.secondary,
 }));
@@ -76,41 +67,71 @@ const Details = styled(MuiDetails)(({ theme }) => ({
 export default function FaqAccordion() {
     const [expanded, setExpanded] = React.useState(DATA[0].q);
 
-    const onChange =
-        (id) =>
-            (_e, isOpen) => {
-                if (isOpen) setExpanded(id);
-            };
+    const onChange = (id) => (_e, isOpen) => {
+        setExpanded(isOpen ? id : null);
+    };
 
     return (
         <Box>
             <Stack>
-                {DATA.map(({ q, a }) => (
+                {DATA.map(({ q, a }) => {
+                    const open = expanded === q;
+                    return (
                     <Accordion
                         key={q}
                         disableGutters
                         expanded={expanded === q}
                         onChange={onChange(q)}
                     >
+                        <Squircle
+                            cornerRadius={20}
+                            cornerSmoothing={1}
+                        >
                         <Summary
-                            expandIcon={<KeyboardArrowDownRoundedIcon />}
+                            sx={{
+                                padding: {xs: '16px', md: '0 40px'},
+                            }}
+                            expandIcon={
+                                <SvgIcon
+                                    viewBox="0 0 24 24"
+                                    sx={{
+                                        width: { md: 32, xs: 18 },
+                                        height: { md: 32, xs: 18 },
+                                        transition: "transform .25s ease",
+                                        transformOrigin: "center",
+                                        color: open ? "#272B37" : "white !important",
+                                    }}
+                                >
+                                    <image href={open ? ArrowIcon : ArrowIcon2} width="24" height="24" />
+                                </SvgIcon>
+                            }
                             aria-controls={`${q}-content`}
                             id={`${q}-header`}
                         >
                             <Typography
                                 component="h4"
+                                sx={{fontWeight: "500 !important"}}
                             >
                                 {q}
                             </Typography>
                         </Summary>
-
-                        <Details>
-                            <Typography component="p">
+                        </Squircle>
+                        <Squircle
+                            cornerRadius={20}
+                            cornerSmoothing={1}
+                            style={{
+                                border: '4px solid #F6F8FB',
+                                marginTop: "8px"
+                            }}
+                        >
+                        <Details sx={{margin: 0, padding: {md: '20px 40px', xs: '16px'}}}>
+                            <Typography component="p" sx={{fontWeight: '400 !important'}}>
                                 {a}
                             </Typography>
                         </Details>
+                        </Squircle>
                     </Accordion>
-                ))}
+                    )})}
             </Stack>
         </Box>
     );

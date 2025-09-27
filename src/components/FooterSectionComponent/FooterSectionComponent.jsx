@@ -1,4 +1,3 @@
-// components/footer/Footer.tsx
 import * as React from "react";
 import {
     Box,
@@ -16,10 +15,10 @@ import {
     Button,
 } from "@mui/material";
 import LogoSvg from "../../assets/logo.svg";
+import {Squircle} from "@squircle-js/react";
 
 const pages = ["Languages", "Why Voxee", "Exercises", "Support & Safety", "FAQ"];
 
-// соответствие пунктов якорям на странице (поставь такие id на секциях)
 const anchors = {
     "Languages":       "languagesSection",
     "Why Voxee":       "whyVoxeeSection",
@@ -43,29 +42,33 @@ function useSmoothScroll() {
 export default function Footer() {
     const scrollToId = useSmoothScroll();
 
-    // state модалок
     const [open, setOpen] = React.useState(null);
     const handleOpen = (k) => () => setOpen(k);
     const handleClose = () => setOpen(null);
 
     return (
+        <Squircle
+            cornerRadius={30}
+            cornerSmoothing={1}
+            className="section"
+            style={{ width: '100%', height: 'auto', background:
+                    "linear-gradient(90deg, rgba(188,218,243,.61) 0%, rgba(220,247,251,.68) 45%, rgba(196,246,251,.43) 100%)"}}
+        >
         <Box
             component="footer"
-            sx={{
-                mt: 8,
-                mx: { xs: 2, md: 3 },
-                borderRadius: 3,
-                background:
-                    "linear-gradient(90deg, rgba(188,218,243,.61) 0%, rgba(220,247,251,.68) 45%, rgba(196,246,251,.43) 100%)",
-            }}
+            sx={{padding: {xs: "14px", md: "50px 90px"}}}
         >
-            <Container maxWidth="xl" sx={{ py: { xs: 3, md: 4 } }}>
+            <Squircle
+                cornerRadius={40}
+                cornerSmoothing={1}
+                style={{maxWidth: "1536px", textAlign: "center", margin: "0 auto"}}
+            >
+            <Container maxWidth="xl" sx={{padding: "0 !important"}}>
                 <Box
                     sx={{
-                        borderRadius: 3,
                         bgcolor: "background.paper",
                         px: { xs: 2, md: 4 },
-                        py: { xs: 2, md: 3 },
+                        py: { xs: 2, md: 3 }
                     }}
                 >
                     <Grid container spacing={2} alignItems="center" justifyContent="space-between">
@@ -77,7 +80,6 @@ export default function Footer() {
                             </Box>
                         </Grid>
 
-                        {/* центр: навигация по якорям + плавный скролл */}
                         <Grid item xs={12} md={4}>
                             <Stack
                                 direction="row"
@@ -100,9 +102,22 @@ export default function Footer() {
                                         component="button"
                                         type="button"
                                         onClick={() => anchors[p] && scrollToId(anchors[p])}
-                                        sx={{ cursor: "pointer", textDecoration: 'none', color: "black" }}
+                                        sx={{ cursor: "pointer", textDecoration: 'none', color: "black",
+                                            "&:hover ._label": {
+                                                textShadow: `
+                                                0  0.015em 0 currentColor,
+                                                0 -0.015em 0 currentColor,
+                                                0.015em 0 0 currentColor,
+                                               -0.015em 0 0 currentColor
+                                              `,
+                                            },
+
+                                            "& ._label": {
+                                                transition: "text-shadow .2s ease",
+                                            },
+                                        }}
                                     >
-                                        {p}
+                                        <span className="_label">{p}</span>
                                     </MuiLink>
                                 ))}
                             </Stack>
@@ -153,11 +168,33 @@ export default function Footer() {
                                     },
                                 }}
                             >
-                                <MuiLink component="button" type="button" onClick={handleOpen("terms")} sx={{ cursor: "pointer",  }}>
-                                    Terms of Use
+                                <MuiLink component="button" type="button" onClick={handleOpen("terms")} sx={{ cursor: "pointer","&:hover ._label": {
+                                        textShadow: `
+                                                0  0.015em 0 currentColor,
+                                                0 -0.015em 0 currentColor,
+                                                0.015em 0 0 currentColor,
+                                               -0.015em 0 0 currentColor
+                                              `,
+                                    },
+
+                                    "& ._label": {
+                                        transition: "text-shadow .2s ease",
+                                    },  }}>
+                                    <span className="_label">Terms of Use</span>
                                 </MuiLink>
-                                <MuiLink component="button" type="button" onClick={handleOpen("privacy")} sx={{ cursor: "pointer" }}>
-                                    Privacy Policy
+                                <MuiLink component="button" type="button" onClick={handleOpen("privacy")} sx={{ cursor: "pointer","&:hover ._label": {
+                                        textShadow: `
+                                                0  0.015em 0 currentColor,
+                                                0 -0.015em 0 currentColor,
+                                                0.015em 0 0 currentColor,
+                                               -0.015em 0 0 currentColor
+                                              `,
+                                    },
+
+                                    "& ._label": {
+                                        transition: "text-shadow .2s ease",
+                                    }, }}>
+                                    <span className="_label">Privacy Policy</span>
                                 </MuiLink>
                             </Stack>
                         </Grid>
@@ -582,9 +619,7 @@ export default function Footer() {
                             Email: <a href="mailto:privacy@example.com">privacy@example.com</a><br/>
                             Address: 1234 App Lane, Suite 100, City, State 00000, Country
                         </address>
-
                         <hr/>
-
                         <p>Thank you for trusting AppName with your information.</p>
                     </section>
                 </DialogContent>
@@ -592,6 +627,8 @@ export default function Footer() {
                     <Button onClick={handleClose} variant="contained">Close</Button>
                 </DialogActions>
             </Dialog>
+            </Squircle>
         </Box>
+        </Squircle>
     );
 }

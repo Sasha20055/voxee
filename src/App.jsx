@@ -12,13 +12,6 @@ import FooterSectionComponent from "./components/FooterSectionComponent/FooterSe
 function App() {
   return (
       <>
-          <FloatingBlob
-              size={420}
-              blur={120}
-              color="rgba(130,160,255,0.5)"
-              minSec={18}
-              maxSec={32}
-          />
           <FirstSectionComponent/>
           <SecondSectionComponent/>
           <ThirdSectionComponent/>

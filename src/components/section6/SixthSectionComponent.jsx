@@ -7,7 +7,7 @@ export default function SixthSectionComponent() {
         <Box id="faqSection" className="sixthSection section">
             <Container sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '20px'}}>
                 <Typography component="h2">
-                    Faq
+                    FAQ
                 </Typography>
                 <Box sx={{display: 'flex', flexDirection: {xs: 'column', md: 'row'}, justifyContent: 'center', alignItems: 'center', gap: '20px'}}>
                     <div className='lastPreviewImg'/>
