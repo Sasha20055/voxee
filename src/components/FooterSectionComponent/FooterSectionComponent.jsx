@@ -59,7 +59,7 @@ export default function Footer() {
             sx={{padding: {xs: "14px", md: "50px 90px"}}}
         >
             <Squircle
-                cornerRadius={40}
+                cornerRadius={27}
                 cornerSmoothing={1}
                 style={{maxWidth: "1536px", textAlign: "center", margin: "0 auto"}}
             >

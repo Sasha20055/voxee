@@ -13,7 +13,7 @@ const items = [
     { icon: Card4, title: "Availability:", text: "iOS and Android (Web — coming soon)." },
 ];
 
-const CARD_H = { xs: 100, md: 150, lg: 150 };
+const CARD_H = { xs: "120px !important", md: "150px !important", lg: 150 };
 
 const FiveSectionComponent = () => {
     return (
@@ -48,7 +48,6 @@ const FiveSectionComponent = () => {
                                     sx={{
                                         margin: {xs: "9px", md: "16px"},
                                         height: CARD_H,
-                                        minHeight: CARD_H,
                                     }}
                                 >
                                     <SvgIcon viewBox="0 0 97 97" sx={{ width: { xs: "56px", md: "97px"}, height: "auto", display: "block", background: '#F6F8FB', padding: {xs: '5px 10px', md: '11px 34px'}, borderRadius: '14px' }}>
