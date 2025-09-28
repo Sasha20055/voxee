@@ -3,8 +3,26 @@ import Card1 from "../../assets/cards/card1.webp"
 import Card2 from "../../assets/cards/card2.webp"
 import Card3 from "../../assets/cards/card3.webp"
 import {Squircle} from "@squircle-js/react";
+import * as React from "react";
 
 const ThirdSectionComponent = () => {
+    function useKickSquircleOnMount() {
+        React.useLayoutEffect(() => {
+            window.dispatchEvent(new Event("resize"));
+        }, []);
+
+        React.useEffect(() => {
+            if (document.fonts?.ready) {
+                document.fonts.ready.then(() => {
+                    window.dispatchEvent(new Event("resize"));
+                });
+            }
+        }, []);
+    }
+
+    useKickSquircleOnMount();
+
+
     return (
         <Box id="whyVoxeeSection" className="thirdSection section" sx={{background: "#F6F8FB", margin: "30px 0"}}>
             <Container maxWidth="xl" sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '40px', padding: '50px 20px'}}>

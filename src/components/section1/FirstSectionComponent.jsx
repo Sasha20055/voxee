@@ -5,6 +5,8 @@ import * as React from "react";
 import ResponsiveNav from "../HeaderComponent.jsx";
 import {Squircle} from "@squircle-js/react";
 import StarSvg from "../../assets/also/star.svg";
+
+
 const FirstSectionComponent = () => {
 
     function useKickSquircleOnMount() {
