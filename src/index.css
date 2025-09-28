@@ -248,7 +248,7 @@ h1.MuiTypography-root {
   color: #272B37;
 }
 
-h2.MuiTypography-root {
+h2.MuiTypography-root, h2 {
   color: rgba(39, 43, 55, 1);
   font-family: 'Noto Sans';
   font-weight: bold;
@@ -359,6 +359,12 @@ main.page-root {
   width: 100%;
 }
 
+.sqlFouthSection {
+  height: 100%;
+  padding: 90px 70px 90px 90px;
+  margin-left: 30px;
+}
+
 @media (prefers-reduced-motion: reduce){
   .blob{ transition: none !important; transform: translate3d(50vw, 50vh, 0) scale(1) !important; }
 }
@@ -369,6 +375,10 @@ main.page-root {
   }
   .fiveSection .MuiPaper-root .MuiCardContent-root {
     padding: 8px
+  }
+
+  .sqlFouthSection h4.MuiTypography-root {
+    font-size: 16px !important;
   }
 
   .fiveSection .MuiPaper-root .MuiCardContent-root h4 {
@@ -397,10 +407,10 @@ main.page-root {
   h1.MuiTypography-root {
     font-size: 30px;
   }
-  h2.MuiTypography-root {
+  h2.MuiTypography-root, h2 {
     font-size: 26px;
   }
-  h4.MuiTypography-root, h4 {
+  h4.MuiTypography-root, .sqlFouthSection h4.MuiTypography-root {
     font-size: 18px;
   }
   p.MuiTypography-root, li.MuiTypography-root {
@@ -432,6 +442,11 @@ main.page-root {
 }
 
 @media screen and (max-width: 900px){
+  .sqlFouthSection {
+    padding: 10px 20px 26px 20px;
+    margin: 0;
+  }
+
   .faqRow {
     align-items: stretch;
   }

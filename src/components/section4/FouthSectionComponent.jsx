@@ -1,11 +1,13 @@
 import * as React from "react";
 import { createPortal } from "react-dom";
-import {Box, Container, Typography} from "@mui/material";
+import {Box, Container, SvgIcon, Typography, useMediaQuery, useTheme} from "@mui/material";
 import {motion, useScroll, useTransform, useMotionValueEvent, useMotionValue, animate} from "framer-motion";
 import {useRef} from "react";
 import FramePng from "../../assets/also/mocap.png";
 import SectionLayout from "./SectionLayout.jsx";
 import {slides} from "../../assets/slides/imports.jsx";
+import MarkSvg from "../../assets/also/mark.svg";
+import {Squircle} from "@squircle-js/react";
 
 const STEPS = 5;
 const PIN_START = 0.005;
@@ -23,6 +25,9 @@ const FRAME_META = {
 };
 
 export default function PhoneShowcase() {
+    const theme = useTheme();
+    const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
+
     const wrapRef = useRef(null);
 
     const { scrollYProgress } = useScroll({
@@ -107,9 +112,14 @@ export default function PhoneShowcase() {
 
     return (
         <Box
+            maxWidth="xl"
             ref={wrapRef}
             component="section"
             sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                margin: "auto",
                 position: "relative",
                 height: `${STEPS * 100}vh`,
             }}
@@ -171,25 +181,31 @@ export default function PhoneShowcase() {
                     <Box
                         sx={{
                             position: "absolute",
-                            top: { xs: 56, md: 88 },
+                            top: { xs: 36, md: 88 },
                             left: 0,
                             right: 0,
                             px: { xs: 2, md: 0 },
                             display: "grid",
-                            gridTemplateColumns: { xs: "1fr", md: "6fr 6fr" },
+                            gridTemplateColumns: { xs: "1fr", md: "7fr 5fr" },
                             alignItems: "start",
                             gap: { xs: 3, md: 6 },
                         }}
                     >
-                        <Box sx={{ pointerEvents: "auto", pr: { md: 4 }, maxWidth: 640, background: '#F6F8FB', padding: {xs: "20px", md:"90px"}, borderRadius: '50px', height: '100%', marginLeft: "30px" }}>
-                            <motion.h4
+                        <Squircle
+                            cornerRadius={50}
+                            cornerSmoothing={1}
+                            style={{height: '100%', maxWidth: 640, background: '#F6F8FB'}}
+                            className="sqlFouthSection"
+                        >
+                        <Box sx={{ pointerEvents: "auto", pr: { md: 4 }, width: "100%", height: "100%" }}>
+                            <motion.h2
                                 key={step}
                                 initial={{opacity: 0, y: 12}}
                                 animate={{opacity: 1, y: 0}}
                                 transition={{duration: 0.35}}
                             >
                                 <Typography
-                                    component="h4"
+                                    component="h2"
                                 >
                                     {[
                                         "Dialogue Practice",
@@ -199,14 +215,14 @@ export default function PhoneShowcase() {
                                         "Listening Practice",
                                     ][step]}
                                 </Typography>
-                            </motion.h4>
+                            </motion.h2>
 
                             <motion.ul
                                 key={`bullets-${step}`}
                                 initial={{opacity: 0}}
                                 animate={{opacity: 1}}
                                 transition={{duration: 0.35, delay: 0.05}}
-                                style={{listStyle: "none", padding: 0, margin: "20px 0 0 0"}}
+                                style={{listStyle: "none", padding: 0, margin: isMdUp ? "20px 0 0 0" : 0}}
                             >
                                 {getBullets(step).map((b) => (
                                     <Typography
@@ -215,29 +231,31 @@ export default function PhoneShowcase() {
                                         sx={{
                                             padding: { xs: "5px 0", md: "10px 0" },
                                             display: "flex",
-                                            gap: '2px',
+                                            alignItems: "center",
+                                            justifyContent: "flex-start",
+                                            gap: {xs: "12px", md: '16px'},
                                             color: "#515C69",
                                             m: 0
                                         }}
                                     >
-          <span
-              aria-hidden
-              style={{
-                  flex: "0 0 12px",
-                  height: 12,
-                  borderRadius: 999,
-                  marginTop: 10,
-                  marginRight: '10px',
-                  background:
-                      "radial-gradient(circle at 30% 30%, #BCDAF3 0%, #DCF7FB 60%, #C4F6FB 100%)",
-                  boxShadow: "0 0 0 3px rgba(188,218,243,.25)",
-              }}
-          />
-                                        <span>{b}</span>
+                                        <SvgIcon
+                                            viewBox="0 0 20 20"
+                                            sx={{
+                                                width: {xs: 13, md: 20},
+                                                height: {xs: 13, md: 20},
+                                                transition: "transform .25s ease",
+                                                transformOrigin: "center",
+                                                transform: open ? "rotate(180deg)" : "rotate(0deg)",
+                                            }}
+                                        >
+                                            <image href={MarkSvg} width="20" height="20" />
+                                        </SvgIcon>
+                                        <Typography component="h4" sx={{color: "#3A4755", fontWeight: "400 !important"}}>{b}</Typography>
                                     </Typography>
                                 ))}
                             </motion.ul>
                         </Box>
+                        </Squircle>
 
                         <Box
                             sx={{
@@ -250,8 +268,8 @@ export default function PhoneShowcase() {
                             <Box
                                 sx={{
                                     position: "absolute",
-                                    left: { xs: "30%", md: "-20%" },
-                                    top: { xs: -20, md: 20 },
+                                    left: { xs: "30%", sm: "30%", md: "-20%", lg: "-20%"},
+                                    top: { xs: -40, md: 20 },
                                     transform: { xs: "translateX(-50%)", md: "none" },
                                     zIndex: 1,
                                     filter: "drop-shadow(0 10px 24px rgba(0,0,0,.12))",
@@ -260,7 +278,8 @@ export default function PhoneShowcase() {
                                 <Phone
                                     stepMV={stepMV}
                                     col="0"
-                                    width={240}
+                                    width={isMdUp ? 330 : 150}
+                                    isMdUp={isMdUp}
                                     frameSrc={FramePng}
                                     meta={IPHONE_15_PRO}
                                     steps={STEPS}
@@ -272,8 +291,8 @@ export default function PhoneShowcase() {
                             <Box
                                 sx={{
                                     position: "absolute",
-                                    left: { xs: "50%", md: "10%" },
-                                    top: { xs: 8, md: 120 },
+                                    left: { xs: "55%", sm: "45%", md: "15%" },
+                                    top: { xs: -10, md: 120 },
                                     transform: { xs: "translateX(-50%)", md: "none" },
                                     zIndex: 2,
                                     filter: "drop-shadow(0 14px 30px rgba(0,0,0,.14))",
@@ -282,7 +301,8 @@ export default function PhoneShowcase() {
                                 <Phone
                                     stepMV={stepMV}
                                     col="1"
-                                    width={240}
+                                    width={isMdUp ? 330 : 150}
+                                    isMdUp={isMdUp}
                                     frameSrc={FramePng}
                                     meta={IPHONE_15_PRO}
                                     steps={STEPS}
@@ -294,8 +314,8 @@ export default function PhoneShowcase() {
                             <Box
                                 sx={{
                                     position: "absolute",
-                                    left: { xs: "70%", md: "40%" },
-                                    top: { xs: 36, md: 220 },
+                                    left: { xs: "80%", sm: "60%", md: "50%" },
+                                    top: { xs: 20, md: 220 },
                                     transform: { xs: "translateX(-50%)", md: "none" },
                                     zIndex: 3,
                                     filter: "drop-shadow(0 18px 36px rgba(0,0,0,.18))",
@@ -304,7 +324,8 @@ export default function PhoneShowcase() {
                                 <Phone
                                     stepMV={stepMV}
                                     col="2"
-                                    width={240}
+                                    width={isMdUp ? 330 : 150}
+                                    isMdUp={isMdUp}
                                     frameSrc={FramePng}
                                     meta={IPHONE_15_PRO}
                                     steps={STEPS}
@@ -330,28 +351,69 @@ const IPHONE_15_PRO = {
 export function Phone({
                           stepMV,
                           col,
-                          width = 240,
+                          width = 320,
                           frameSrc,
                           meta,
                           steps,
                           screenSrcBuilder,
+                          isMdUp,
                       }) {
     const k = width / meta.w;
     const height = meta.h * k;
 
-    const screenLeft   = meta.inset.left   * k - 10;
+    const screenLeft   = meta.inset.left   * k - (isMdUp ? 10 : 5);
     const screenRight  = meta.inset.right  * k;
-    const screenTop    = meta.inset.top    * k - 20;
+    const screenTop    = meta.inset.top    * k - (isMdUp ? 28 : 13);
     const screenBottom = meta.inset.bottom * k;
 
-    const screenW = width  - screenLeft - screenRight + 10;
-    const screenH = height - screenTop  - screenBottom + 25;
+    const screenW = width  - screenLeft - screenRight + (isMdUp ? 12 : 5);
+    const screenH = height - screenTop  - screenBottom + (isMdUp ? 35 : 15);
     const radius  = (meta.radius ?? 0) * k;
 
-    const xPx = useTransform(stepMV, (s) => `-${s * 100}%`);
+    const W = isMdUp ? 310 : 140;
+    const H = isMdUp ? 660 : 300;
+
+    const tMV = useTransform(stepMV, (v) => {
+        const clamped = Math.max(0, Math.min(steps - 1, v));
+        const base = Math.floor(clamped);
+        return clamped - base;
+    });
+
+
+    const xMV = useTransform(tMV, (t) => Math.round((1 - t) * W));
+    const showTopMV = useTransform(tMV, (t) => (t > 0 ? 1 : 0));
+
+    const baseIdxRef = React.useRef(0);
+    const nextIdxRef = React.useRef(1);
+
+    const baseImgRef = React.useRef(null);
+    const topImgRef  = React.useRef(null);
+
+    useMotionValueEvent(stepMV, "change", (v) => {
+        const clamped = Math.max(0, Math.min(steps - 1, v));
+        const base = Math.floor(clamped);
+        const next = Math.min(base + 1, steps - 1);
+
+        if (base !== baseIdxRef.current && baseImgRef.current) {
+            baseIdxRef.current = base;
+            baseImgRef.current.src = screenSrcBuilder(base, col);
+        }
+        if (next !== nextIdxRef.current && topImgRef.current) {
+            nextIdxRef.current = next;
+            topImgRef.current.src = screenSrcBuilder(next, col);
+        }
+    });
+
+    useMotionValueEvent(tMV, "change", (t) => {
+        if (t >= 0.999 && baseImgRef.current && topImgRef.current) {
+            baseImgRef.current.src = topImgRef.current.src;
+            baseIdxRef.current = nextIdxRef.current;
+        }
+    });
 
     return (
         <Box sx={{ width, height, position: "relative" }}>
+
             <Box
                 sx={{
                     position: "absolute",
@@ -361,33 +423,53 @@ export function Phone({
                     height: screenH,
                     overflow: "hidden",
                     borderRadius: radius,
-                    background: "#000",
+                    background: "transparent",
                     boxShadow: "inset 0 0 0 1px rgba(0,0,0,.06)",
+                    contain: "paint",
                 }}
             >
-                <motion.div
-                    style={{display: "flex", width: `${steps * 100}%`, height: "100%", x: xPx}}
-                    transition={{type: "tween", ease: "easeInOut", duration: 0.35}}
-                >
-                    {Array.from({length: steps}).map((_, i) => (
-                        <Box key={i} sx={{flex: "0 0 100%", height: "100%", position: "relative"}}>
-                            <Box
-                                component="img"
-                                src={screenSrcBuilder(i, col)}
-                                alt=""
-                                sx={{
-                                    position: "absolute",
-                                    inset: 0,
-                                    width: "225px",
-                                    height: "495px",
-                                    display: "block",
-                                    objectFit: "cover"
-                                }}
-                            />
-                        </Box>
-                    ))}
-                </motion.div>
+
+                <img
+                    ref={baseImgRef}
+                    src={screenSrcBuilder(0, col)}
+                    alt=""
+                    decoding="async"
+                    style={{
+                        position: "absolute",
+                        inset: 0,
+                        margin: "auto",
+                        width: W,
+                        height: H,
+                        objectFit: "cover",
+                        display: "block",
+                        backfaceVisibility: "hidden",
+                    }}
+                />
+
+
+                <motion.img
+                    ref={topImgRef}
+                    src={screenSrcBuilder(1, col)}
+                    alt=""
+                    decoding="async"
+                    style={{
+                        position: "absolute",
+                        inset: 0,
+                        margin: "auto",
+                        width: W,
+                        height: H,
+                        objectFit: "cover",
+                        display: "block",
+                        x: xMV,
+                        opacity: showTopMV,
+                        willChange: "transform, opacity",
+                        backfaceVisibility: "hidden",
+                        pointerEvents: "none",
+                    }}
+                    transition={{ type: "tween", ease: "easeInOut", duration: 0.35 }}
+                />
             </Box>
+
 
             <Box
                 component="img"
@@ -413,7 +495,7 @@ function getBullets(step) {
         ["Choose a scenario — or invent your own (say, a dragon flight).", "Make it yours: set roles, goals, and extra instructions. ", "Instant corrections with clear explanations (in your language).", "Get phrase ideas to keep the conversation flowing."],
         ["Use ready stories", "Generate your own from a prompt. You control length & level.", "Parallel view: target on top, native below. Hide or reveal."],
         ["Learn to ask questions", "Ask by voice — get instant feedback.", "Corrected version + more natural version, with explanations in your language.", "Now answer by voice — get the same clear feedback."],
-        ["Build vocabulary & connected speech — describe the picture. ", "Need ideas? Tap smart hints for details", "Speak your description — get accuracy, instant fixes, and explanations in your language. ", "Review your mistakes — open each fix to see the rule and examples.", "Learn the more natural version and sound fluent."],
+        ["Build vocabulary & connected speech — describe the picture. ", "Need ideas? Tap smart hints for details", "Speak your description — get accuracy, instant fixes, and explanations in your language. "],
         ["Listen to stories, dialogues, and monologues — choose speaker accent and level.", "Quiz types: image choice, true/false, short answer.", "Answer and get instant feedback — build listening comprehension fast."],
     ];
     return data[step] ?? [];

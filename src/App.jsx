@@ -14,7 +14,7 @@ function App() {
           <FirstSectionComponent/>
           <SecondSectionComponent/>
           <ThirdSectionComponent/>
-        {/*  <ShowcaseSection/>*/}
+          <ShowcaseSection/>
           <FiveSectionComponent/>
           <SixthSectionComponent/>
           <FooterSectionComponent/>
