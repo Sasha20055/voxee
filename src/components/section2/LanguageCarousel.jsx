@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Box, Avatar, Typography, SvgIcon} from "@mui/material";
+import {Box, Avatar, Typography, SvgIcon, useMediaQuery, useTheme} from "@mui/material";
 import { keyframes } from "@mui/system";
 import enFlag from "../../assets/flags/en.webp";
 import esFlag from "../../assets/flags/es.webp";
@@ -32,13 +32,18 @@ const langs = [
     { code: "vi", label: "Tiếng Việt", flag: viFlag },
 ];
 
-function LangChip({ label, flag }) {
+function LangChip({ label, code, flag }) {
+    const theme = useTheme();
+    const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
+    const displayText = isMdUp ? label : code;
+    const active = code === "en";
+
     return (
         <Squircle
             cornerRadius={10}
             cornerSmoothing={1}
             style={{
-                background: "#fff",
+                background: !active ? '#fff' : '#F6F8FB',
                 overflow: "hidden",
                 display: 'flex',
                 alignItems: 'center',
@@ -50,36 +55,36 @@ function LangChip({ label, flag }) {
                 sx={{
                     display: "flex",
                     alignItems: "center",
-                    gap: 2,
-                    px: 2,
-                    py: 1.25,
+                    justifyContent: "space-between",
+                    width: { xs: "72px", md: "156px" },
+                    padding: {xs: "6px", md: "9px 12px"},
                     pointerEvents: "none",
                 }}
             >
                 <Avatar
                     src={flag}
-                    alt={label}
-                    sx={{ width: 44, height: 28, borderRadius: 0.8, flex: "0 0 auto" }}
+                    alt={displayText}
+                    sx={{ width: {xs: 31, md: 44}, height: {xs: 20, md: 28}, borderRadius: 0.8, flex: "0 0 auto" }}
                     imgProps={{ loading: "lazy" }}
                 />
 
                 <Typography
                     component="span"
                     fontWeight={600}
-                    sx={{ color: "#272B37 !important", m: 0, lineHeight: 1.2, pointerEvents: "auto", whiteSpace: "nowrap" }}
+                    sx={{ color: "#272B37 !important", m: 0, lineHeight: 1.2, pointerEvents: "auto", whiteSpace: "nowrap", paddingLeft: {xs: "6px", md: "9px"} }}
                 >
-                    {label}
+                    {displayText}
                 </Typography>
 
 
-                {label !== 'English' ? <Box
+                {!active ? <Box
                     aria-hidden
                     sx={{
                         ml: "auto",
-                        width: 16,
-                        height: 16,
+                        width: {xs: 6, md: 16},
+                        height: {xs: 6, md: 16},
                         borderRadius: "999px",
-                        border: "2px solid #E1E8F0",
+                        border: "1.5px solid #E1E8F0",
                         backgroundColor: "#fff",
                         boxShadow: "0 0 0 0 rgba(0,0,0,0)",
                         flex: "0 0 auto",
@@ -88,8 +93,8 @@ function LangChip({ label, flag }) {
                 /> : <SvgIcon
                     viewBox="0 0 20 20"
                     sx={{
-                        width: 20,
-                        height: 20,
+                        width: {xs: 10, md: 20},
+                        height: {xs: 10, md: 20},
                         transition: "transform .25s ease",
                         transformOrigin: "center",
                         transform: open ? "rotate(180deg)" : "rotate(0deg)",
@@ -139,7 +144,7 @@ export default function LanguageMarquee({
                 }}
             >
                 {items.map((l, i) => (
-                    <LangChip key={`${l.code}-${i}`} label={l.label} flag={l.flag} />
+                    <LangChip key={`${l.code}-${i}`} label={l.label} flag={l.flag} code={l.code} />
                 ))}
             </Box>
         </Box>

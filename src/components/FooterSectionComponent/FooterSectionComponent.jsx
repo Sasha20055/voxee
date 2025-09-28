@@ -71,7 +71,7 @@ export default function Footer() {
                         py: { xs: 2, md: 3 }
                     }}
                 >
-                    <Grid container spacing={2} alignItems="center" justifyContent="space-between">
+                    <Grid container spacing={2} alignItems="center" sx={{justifyContent: { xs: "center", md: "space-between" }}}>
                         <Grid item xs={12} md={4}>
                             <Box sx={{ display: "flex", justifyContent: { xs: "center", md: "flex-start" } }}>
                                 <SvgIcon viewBox="0 0 64 24" sx={{ width: 120, height: "auto", display: { xs: "none", md: "block" } }}>
@@ -124,7 +124,7 @@ export default function Footer() {
                         </Grid>
 
                         <Grid item xs={12} md={4}>
-                            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+                            <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", position: "relative", left: { xs: '-10px', md: "0" }}}>
                                 <a href="https://play.google.com/" target="_blank" rel="noreferrer" className="googlePlaySvg footer" />
                                 <a href="https://www.apple.com/app-store/" target="_blank" rel="noreferrer" className="appStoreSvg footer" />
                             </Box>
@@ -145,7 +145,7 @@ export default function Footer() {
                                 <image href={LogoSvg} width="64" height="24" />
                             </SvgIcon>
                             <Typography
-                                variant="body2"
+                                variant="p"
                                 sx={{ whiteSpace: "nowrap" }}
                                 color="text.secondary"
                                 textAlign={{ xs: "center", md: "left" }}
@@ -160,7 +160,10 @@ export default function Footer() {
                                 justifyContent={{ xs: "end", md: "flex-end" }}
                                 sx={{
                                     flexWrap: "wrap",
-                                    gap: { xs: 2, md: 3 },
+                                    flexDirection: { xs: "column", md: "row" },
+                                    paddingRight: { xs: '30px', md: "auto" },
+                                    textAlign: { xs: "start", md: "center" },
+                                    gap: { xs: "12px", md: 3 },
                                     "& a, & button": {
                                         color: "text.secondary",
                                         textDecoration: "none",
@@ -180,7 +183,7 @@ export default function Footer() {
                                     "& ._label": {
                                         transition: "text-shadow .2s ease",
                                     },  }}>
-                                    <span className="_label">Terms of Use</span>
+                                    <span className="_label"><Typography component="span">Terms of Use</Typography></span>
                                 </MuiLink>
                                 <MuiLink component="button" type="button" onClick={handleOpen("privacy")} sx={{ cursor: "pointer","&:hover ._label": {
                                         textShadow: `
@@ -194,7 +197,7 @@ export default function Footer() {
                                     "& ._label": {
                                         transition: "text-shadow .2s ease",
                                     }, }}>
-                                    <span className="_label">Privacy Policy</span>
+                                    <span className="_label"><Typography component="span" sx={{fontSize: {xs: "12px", md: "14px"}}}>Privacy Policy</Typography></span>
                                 </MuiLink>
                             </Stack>
                         </Grid>

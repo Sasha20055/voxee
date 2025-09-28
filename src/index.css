@@ -189,6 +189,7 @@ body {
   background: url("./assets/imgs/img2.webp") 50% 50% no-repeat;
   background-size: 488px;
   padding: 300px 250px;
+  border-radius: 0;
 }
 
 .MuiBox-root.firstSection, .MuiBox-root.fiveSection, .MuiBox-root.footerSection {
@@ -346,8 +347,16 @@ main.page-root {
   align-items: center;
 }
 
+.fiveSection .MuiPaper-root .MuiCardContent-root span {
+  color: #3A4755;
+}
+
 .footer {
 
+}
+
+.sqlSixthSection {
+  width: 100%;
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -355,6 +364,16 @@ main.page-root {
 }
 
 @media screen and (max-width: 1000px){
+  .fiveSection .MuiGrid-root .card {
+    gap: 9px;
+  }
+  .fiveSection .MuiPaper-root .MuiCardContent-root {
+    padding: 8px
+  }
+
+  .fiveSection .MuiPaper-root .MuiCardContent-root h4 {
+    font-size: 16px;
+  }
   .firstSection .starSvg {
     top: -20px;
     right: 0;
@@ -397,9 +416,10 @@ main.page-root {
     background-size: 400px;
     padding: 130px 200px;
   }
+
   .lastPreviewImg {
-    background-size: 300px;
-    padding: 190px 150px;
+    background-size: 400px;
+    padding: 250px 200px;
   }
 }
 
@@ -408,6 +428,44 @@ main.page-root {
     background-size: 132px;
     padding: 25px 65px;
     margin: 0;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .faqRow {
+    align-items: stretch;
+  }
+
+  .lastPreviewImg {
+    width: 100%;
+    height: 260px;
+    padding: 0;
+    box-sizing: border-box;
+    background-image:
+            url("./assets/imgs/img2-mobile.webp"),
+            linear-gradient(
+                    100deg,
+                    #cfe5f3 0%,
+                    #d9eef6 40%,
+                    #e6f4fb 72%,
+                    #e7e5ff 100%
+            ),
+            linear-gradient(
+                    180deg,
+                    rgba(255,255,255,.55) 0%,
+                    rgba(255,255,255,0) 18%,
+                    rgba(255,255,255,0) 82%,
+                    rgba(255,255,255,.55) 100%
+            );
+    background-position: center calc(50% + 14px), center;
+    background-repeat: no-repeat, no-repeat;
+    background-size: contain, cover;
+    overflow: hidden;
+  }
+
+  .faqAccordion {
+    flex: 1 1 0;
+    min-width: 0;
   }
 }
 

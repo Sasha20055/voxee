@@ -9,7 +9,6 @@ import {
     Stack, SvgIcon,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
 import ArrowIcon from "../../assets/also/arrowLang.svg";
 import ArrowIcon2 from "../../assets/also/arrowLang2.svg";
 import {Squircle} from "@squircle-js/react";
@@ -30,7 +29,7 @@ const Accordion = styled(MuiAccordion)(() => ({
     boxShadow: "none",
     background: "transparent",
     "&:before": { display: "none" },
-    marginBottom: 16,
+    marginBottom: 14,
     "&:last-of-type": { marginBottom: 0 },
 }));
 

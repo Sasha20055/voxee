@@ -42,15 +42,15 @@ const FirstSectionComponent = () => {
                 </Typography>
                 <Typography component="p" sx={{textAlign: 'center', width: {xs: '100%', md: '50% '}}}>Live conversations, parallel stories, listening quizzes, and image descriptions — with AI feedback.</Typography>
                 <Squircle
-                    cornerRadius={8}
+                    cornerRadius={10}
                     cornerSmoothing={1}
                     style={{ width: 'auto', height: 'auto', padding: '5px 10px', border: '1.5px solid rgba(39, 43, 55, 0.54)', textAlign: "center"}}
                 >
                 <Box sx={{display: 'inline-flex', margin: 0, justifyContent: 'center', alignItems: 'center', gap: '10px'}}>
-                    <SvgIcon viewBox="0 0 30 30" sx={{ width: 26, height: "auto", display: "block", position: "relative", top: "2px" }}>
+                    <SvgIcon viewBox="0 0 30 30" sx={{ width: 26, height: "auto", display: "block", position: "relative", top: "3px" }}>
                         <image href={CardSvg} width="30" height="30" />
                     </SvgIcon>
-                        <Typography component="span" sx={{color: 'rgba(39, 43, 55, 0.54)'}}>Start with free credits — try every exercise. No card required.</Typography>
+                        <Typography component="span" sx={{color: 'rgba(39, 43, 55, 0.54)', position: "relative", top: "2px"}}>Start with free credits — try every exercise. No card required.</Typography>
                 </Box>
                 </Squircle>
                 <Box

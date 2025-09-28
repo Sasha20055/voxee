@@ -1,5 +1,4 @@
 import './App.css'
-import FloatingBlob from "./components/also/FloatingBlob.jsx";
 import FirstSectionComponent from "./components/section1/FirstSectionComponent.jsx";
 import SecondSectionComponent from "./components/section2/SecondSectionComponent.jsx";
 import ThirdSectionComponent from "./components/section3/ThirdSectionComponent.jsx";
@@ -15,7 +14,7 @@ function App() {
           <FirstSectionComponent/>
           <SecondSectionComponent/>
           <ThirdSectionComponent/>
-          <ShowcaseSection/>
+        {/*  <ShowcaseSection/>*/}
           <FiveSectionComponent/>
           <SixthSectionComponent/>
           <FooterSectionComponent/>

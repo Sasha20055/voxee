@@ -107,34 +107,7 @@ export default function LanguageSelect() {
         }
     };
 
-    const S = React.useMemo(() => {
-        if (density === 'ultra') {
-            return {
-                btnPadding: '6px 8px',
-                groupGap: '6px',
-                endIconSize: 18,
-                flagW: 28,
-                flagH: 18,
-            };
-        }
-        if (density === 'compact') {
-            return {
-                btnPadding: '8px 10px',
-                groupGap: '8px',
-                endIconSize: 18,
-                flagW: 36,
-                flagH: 24,
-            };
-        }
-        // full
-        return {
-            btnPadding: '9px 12px 9px 12px',
-            groupGap: '9px',
-            endIconSize: 20,
-            flagW: 44,
-            flagH: 28,
-        };
-    }, [density]);
+
 
     const handleClose = () => setAnchorEl(null);
     const change = async (lng) => {
@@ -157,8 +130,8 @@ export default function LanguageSelect() {
                     <SvgIcon
                         viewBox="0 0 24 24"
                         sx={{
-                            width: { md: 18, sm: 18, lg: 20 },
-                            height: { md: 18, sm: 18, lg: 20 },
+                            width: { xs: 15, md: 18, sm: 18, lg: 20 },
+                            height: { xs: 15, md: 18, sm: 18, lg: 20 },
                             transition: "transform .25s ease",
                             transformOrigin: "center",
                             transform: open ? "rotate(-180deg)" : "rotate(0deg)",
@@ -172,7 +145,7 @@ export default function LanguageSelect() {
                     p: { md: "6px 10px 6px 8px", sm: "8px 14px 8px 10px", lg: "9px 20px 9px 12px" },
                     gap: { md: "10px", sm: "16px", lg: "28px" },
                     color: "text.primary",
-                    width: { xs: '200px', md: "200px", sm: "200px", lg: "auto" },
+                    width: { xs: '150px', md: "200px", sm: "200px", lg: "auto" },
                     textTransform: "none",
                     justifyContent: "space-between",
                     boxShadow: 0,
@@ -195,8 +168,8 @@ export default function LanguageSelect() {
                         src={FLAGS[current.code]}
                         alt={current.label}
                         sx={{
-                            width: { md: 28, sm: 36, lg: 36, xl: 44 },
-                            height: { md: 18, sm: 24, lg: 24, xl: 28 },
+                            width: {xs: 31, md: 28, sm: 36, lg: 44, xl: 44 },
+                            height: {xs: 20, md: 18, sm: 24, lg: 28, xl: 28 },
                             objectFit: "cover",
                             borderRadius: "3px",
                             flex: "0 0 auto",
@@ -261,9 +234,19 @@ export default function LanguageSelect() {
                             },
                         }}
                     >
-                        <ListItemIcon sx={{ minWidth: 34 }}>
-                            <img src={FLAGS[l.code]} alt={l.label} width={44} height={28}
-                                 style={{ objectFit: "cover", borderRadius: 3 }} />
+                        <ListItemIcon sx={{ minWidth: { xs: 28, sm: 34 } }}>
+                            <Box
+                                component="img"
+                                src={FLAGS[l.code]}
+                                alt={l.label}
+                                sx={{
+                                    width: {xs: 31, md: 28, sm: 36, lg: 44, xl: 44 },
+                                    height: {xs: 20, md: 18, sm: 24, lg: 28, xl: 28 },
+                                    objectFit: "cover",
+                                    borderRadius: 1,
+                                    display: "block"
+                                }}
+                            />
                         </ListItemIcon>
                         <ListItemText
                             primary={l.label}
