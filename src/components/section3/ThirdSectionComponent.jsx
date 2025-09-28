@@ -68,7 +68,7 @@ const ThirdSectionComponent = () => {
 
     return (
         <Box id="whyVoxeeSection" className="thirdSection section" sx={{background: "#F6F8FB", margin: "30px 0"}}>
-            <Container maxWidth="xl" sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: {xs: "26px", md:'40px'}, padding: {xs: "30px 20px", md:'50px 20px'}}}>
+            <Container maxWidth="xl" sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: {xs: "26px", md:'40px'}, padding: {xs: "30px 14px", md:'50px 20px'}}}>
                 <Typography component="h2">
                     Why Voxee
                 </Typography>
