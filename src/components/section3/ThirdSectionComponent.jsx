@@ -1,48 +1,15 @@
-import {Box, Card, CardContent, CardMedia, Container, Grid, SvgIcon, Typography} from "@mui/material";
+import {Box, Card, CardContent, CardMedia, Container, Grid, Typography} from "@mui/material";
 import Card1 from "../../assets/cards/card1.webp"
 import Card2 from "../../assets/cards/card2.webp"
 import Card3 from "../../assets/cards/card3.webp"
 import {Squircle} from "@squircle-js/react";
 import * as React from "react";
-import StarColorSvg from "../../assets/also/starColor.svg";
-
-function TitleWithStar({ text }) {
-    const words = text.trim().split(" ");
-    const last = words.pop();
-    const first = words.join(" ");
-
-    return (
-        <>
-            {first}{" "}
-            <Box
-                component="span"
-                sx={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    whiteSpace: "nowrap",
-                    columnGap: 0.5,
-                }}
-            >
-                {last}
-                <SvgIcon
-                    viewBox="0 0 30 30"
-                    sx={{
-                        position: "relative",
-                        top: { xs: "-12px", md: "-15px" },
-                        left: { xs: "-8px", md: "-8px" },
-                        fontSize: { xs: 17, md: 16 },
-                        transform: { xs: "translateY(1px)", md: "translateY(2px)" },
-                        flex: "0 0 auto",
-                    }}
-                >
-                    <image href={StarColorSvg} width="30" height="30" />
-                </SvgIcon>
-            </Box>
-        </>
-    );
-}
+import TitleWithStar from "../../helpers/TitleWithStar.jsx";
+import {useTranslation} from "react-i18next";
 
 const ThirdSectionComponent = () => {
+    const {t: whyVoxee} = useTranslation('common', {keyPrefix: "whyVoxee"});
+
     function useKickSquircleOnMount() {
         React.useLayoutEffect(() => {
             window.dispatchEvent(new Event("resize"));
@@ -60,9 +27,9 @@ const ThirdSectionComponent = () => {
     useKickSquircleOnMount();
 
     const titles = [
-        "Exercises That Really Work",
-        "Powered by Advanced AI",
-        "Clear Feedback & Smart Hints",
+        whyVoxee("cards.0.title"),
+        whyVoxee("cards.1.title"),
+        whyVoxee("cards.2.title"),
     ];
 
 
@@ -70,12 +37,12 @@ const ThirdSectionComponent = () => {
         <Box id="whyVoxeeSection" className="thirdSection section" sx={{background: "#F6F8FB", margin: "30px 0"}}>
             <Container maxWidth="xl" sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: {xs: "26px", md:'40px'}, padding: {xs: "30px 14px", md:'50px 20px'}}}>
                 <Typography component="h2">
-                    Why Voxee
+                    {whyVoxee("title")}
                 </Typography>
                 <Grid
                     container
                     spacing={3}
-                    sx={{ alignItems: "stretch", display: "flex", flexWrap: "nowrap", flexDirection: {xs: "column", md: "row"}, justifyContent: "center" }}   // <— растягивает item до максимальной высоты
+                    sx={{ alignItems: "stretch", display: "flex", flexWrap: "nowrap", flexDirection: {xs: "column", md: "row"}, justifyContent: "center" }}
                 >
                     {[Card1, Card2, Card3].map((img, idx) => (
                         <Grid item xs={12}
@@ -124,9 +91,9 @@ const ThirdSectionComponent = () => {
                                             </Typography>
                                         <Typography variant="span" sx={{flexGrow: 1}}>
                                             {[
-                                                "Interesting, well-designed exercises help you improve speaking, listening, and vocabulary for everyday life.",
-                                                "We use powerful, leading-edge AI for natural voices and smart help — like a tutor, anytime.",
-                                                "Get quick corrections with simple explanations — plus hints that help you keep practicing.",
+                                                whyVoxee("cards.0.text"),
+                                                whyVoxee("cards.1.text"),
+                                                whyVoxee("cards.2.text"),
                                             ][idx]}
                                         </Typography>
                                         </CardContent>

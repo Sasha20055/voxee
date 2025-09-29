@@ -1,5 +1,138 @@
 {
-  "hi": "HI",
-  "hello": "Hello",
-  "world": "World"
+  "meta": {
+    "title": "Voxee — Learn languages by practicing with AI",
+    "description": "Speak, listen, and improve fast with AI. Live voice dialogues, stories, quizzes, and instant corrections — on iOS & Android. Free credits, no card required."
+  },
+  "nav": {
+    "home": "Home",
+    "languages": "Languages",
+    "whyVoxee": "Why Voxee",
+    "exercises": "Exercises",
+    "support": "Support & Safety",
+    "faq": "FAQ"
+  },
+  "home": {
+    "title": "Voxee — Learn languages by practicing with AI",
+    "subtitle": "Live conversations, parallel stories, listening quizzes, and image descriptions — with AI feedback.",
+    "span": "Start with free credits — try every exercise. No card required."
+  },
+  "languages": {
+    "title1": "Learn one or many languages.",
+    "title2": "Voices with different accents",
+    "subtitle1": "English now",
+    "subtitle2": "· More languages soon..."
+  },
+  "whyVoxee": {
+    "title": "Why Voxee",
+    "cards": [
+      {
+        "title": "Exercises That Really Work",
+        "text": "Interesting, well-designed exercises help you improve speaking, listening, and vocabulary for everyday life."
+      },
+      {
+        "title": "Powered by Advanced AI",
+        "text": "We use powerful, leading-edge AI for natural voices and smart help — like a tutor, anytime."
+      },
+      {
+        "title": "Clear Feedback & Smart Hints",
+        "text": "Get quick corrections with simple explanations — plus hints that help you keep practicing."
+      }
+    ]
+  },
+  "showcase": {
+    "titleByStep": [
+      "Dialogue Practice",
+      "Parallel Stories",
+      "Ask & Answer",
+      "Learn to Describe",
+      "Listening Practice"
+    ],
+    "bulletsByStep": [
+      [
+        "Choose a scenario — or invent your own (say, a dragon flight).",
+        "Make it yours: set roles, goals, and extra instructions.",
+        "Instant corrections with clear explanations (in your language).",
+        "Get phrase ideas to keep the conversation flowing."
+      ],
+      [
+        "Use ready stories.",
+        "Generate your own from a prompt. You control length & level.",
+        "Parallel view: target on top, native below. Hide or reveal."
+      ],
+      [
+        "Learn to ask questions.",
+        "Ask by voice — get instant feedback.",
+        "Corrected version + more natural version, with explanations in your language.",
+        "Now answer by voice — get the same clear feedback."
+      ],
+      [
+        "Build vocabulary & connected speech — describe the picture.",
+        "Need ideas? Tap smart hints for details.",
+        "Speak your description — get accuracy, instant fixes, and explanations in your language."
+      ],
+      [
+        "Listen to stories, dialogues, and monologues — choose speaker accent and level.",
+        "Quiz types: image choice, true/false, short answer.",
+        "Answer and get instant feedback — build listening comprehension fast."
+      ]
+    ]
+  },
+  "safety": {
+    "title": "Safe, Simple, and Accessible",
+    "items": [
+      {
+        "title": "Privacy:",
+        "text": "Your recordings and corrections are visible only to you."
+      },
+      {
+        "title": "Payments:",
+        "text": "Top-ups are handled by Apple and Google. No external links, no direct card forms."
+      },
+      {
+        "title": "Support:",
+        "text": "In-app Help & Feedback or email support@voxee.app."
+      },
+      {
+        "title": "Availability:",
+        "text": "iOS and Android (Web — coming soon)."
+      }
+    ]
+  },
+  "faq": {
+    "title": "FAQ",
+    "items": [
+      {
+        "q": "Is there a free trial period?",
+        "a": "Yes — you start with a free balance to try every exercise. No card required."
+      },
+      {
+        "q": "How do payments work?",
+        "a": "Top-ups are handled by Apple and Google. No external links, no direct card forms."
+      },
+      {
+        "q": "Which levels is it for?",
+        "a": "Beginner to advanced — content adapts to your level and goals."
+      },
+      {
+        "q": "Which languages can I learn now?",
+        "a": "English, Spanish, French, German, Italian, Japanese, Korean, Portuguese, Russian, Vietnamese."
+      },
+      {
+        "q": "How do I contact support?",
+        "a": "In-app Help & Feedback or email support@voxee.app."
+      }
+    ],
+    "expand": "Expand",
+    "collapse": "Collapse"
+  },
+  "footer": {
+    "home": "Home",
+    "faq": "FAQ",
+    "languages": "Languages",
+    "whyVoxee": "Why Voxee",
+    "exercises": "Exercises",
+    "support": "Support & Safety",
+    "termsOfUse": "Terms of Use",
+    "privacyPolicy": "Privacy Policy"
+  }
 }

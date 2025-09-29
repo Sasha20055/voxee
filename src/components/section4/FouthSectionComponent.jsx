@@ -8,23 +8,18 @@ import SectionLayout from "./SectionLayout.jsx";
 import {slides} from "../../assets/slides/imports.jsx";
 import MarkSvg from "../../assets/also/mark.svg";
 import {Squircle} from "@squircle-js/react";
+import {useTranslation} from "react-i18next";
 
 const STEPS = 5;
 const PIN_START = 0.005;
 const PIN_END   = 0.999;
 
-
 const FADE = 0.0001;
-
 const VIS_THRESH = 0.01;
 
-const FRAME_META = {
-    w: 1290,
-    h: 2640,
-    inset: { top: 140, right: 90, bottom: 160, left: 90 },
-};
-
 export default function PhoneShowcase() {
+    const {t: showcase} = useTranslation("common", {keyPrefix: "showcase"});
+
     const theme = useTheme();
     const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
 
@@ -71,6 +66,15 @@ export default function PhoneShowcase() {
         const rel = (v - start) / (end - start);
         const idx = Math.floor(rel * STEPS);
         return Math.max(0, Math.min(STEPS - 1, idx));
+    }
+
+    const bulletsByStep = React.useMemo(
+        () => showcase("bulletsByStep", { returnObjects: true }) ?? [],
+        [showcase]
+    );
+
+    function getBullets(step) {
+        return Array.isArray(bulletsByStep?.[step]) ? bulletsByStep[step] : [];
     }
 
     useMotionValueEvent(scrollYProgress, "change", (v) => {
@@ -200,13 +204,7 @@ export default function PhoneShowcase() {
                                 <Typography
                                     component="h2"
                                 >
-                                    {[
-                                        "Dialogue Practice",
-                                        "Parallel Stories",
-                                        "Ask & Answer",
-                                        "Learn to Describe",
-                                        "Listening Practice",
-                                    ][step]}
+                                    {showcase(`titleByStep.${step}`)}
                                 </Typography>
                             </motion.h2>
 
@@ -481,15 +479,4 @@ export function Phone({
             />
         </Box>
     );
-}
-
-function getBullets(step) {
-    const data = [
-        ["Choose a scenario — or invent your own (say, a dragon flight).", "Make it yours: set roles, goals, and extra instructions. ", "Instant corrections with clear explanations (in your language).", "Get phrase ideas to keep the conversation flowing."],
-        ["Use ready stories", "Generate your own from a prompt. You control length & level.", "Parallel view: target on top, native below. Hide or reveal."],
-        ["Learn to ask questions", "Ask by voice — get instant feedback.", "Corrected version + more natural version, with explanations in your language.", "Now answer by voice — get the same clear feedback."],
-        ["Build vocabulary & connected speech — describe the picture. ", "Need ideas? Tap smart hints for details", "Speak your description — get accuracy, instant fixes, and explanations in your language. "],
-        ["Listen to stories, dialogues, and monologues — choose speaker accent and level.", "Quiz types: image choice, true/false, short answer.", "Answer and get instant feedback — build listening comprehension fast."],
-    ];
-    return data[step] ?? [];
 }

@@ -78,7 +78,6 @@ export default function LanguageSelect() {
     const btnRef = React.useRef(null);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [menuWidth, setMenuWidth] = React.useState(null);
-    const [density, setDensity] = React.useState('full');
     const open = Boolean(anchorEl);
 
     React.useEffect(() => {
@@ -88,10 +87,6 @@ export default function LanguageSelect() {
         const compute = () => {
             const w = Math.round(el.getBoundingClientRect().width);
             setMenuWidth(w);
-
-            if (w >= 240) setDensity('full');
-            else if (w >= 200) setDensity('compact');
-            else setDensity('ultra');
         };
 
         const ro = new ResizeObserver(compute);
@@ -107,8 +102,6 @@ export default function LanguageSelect() {
             setMenuWidth(Math.round(btnRef.current.getBoundingClientRect().width));
         }
     };
-
-
 
     const handleClose = () => setAnchorEl(null);
     const change = async (lng) => {

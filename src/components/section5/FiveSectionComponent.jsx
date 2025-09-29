@@ -1,21 +1,24 @@
-import {Box, Card, CardContent, CardMedia, Container, Grid, SvgIcon, Typography} from "@mui/material";
+import {Box, Card, CardContent, Container, Grid, SvgIcon, Typography} from "@mui/material";
 import Card1 from "../../assets/supportSvgs/support1.svg";
 import Card3 from "../../assets/supportSvgs/support2.svg";
 import Card2 from "../../assets/supportSvgs/support3.svg";
 import Card4 from "../../assets/supportSvgs/support4.svg";
 import * as React from "react";
 import {Squircle} from "@squircle-js/react";
-
-const items = [
-    { icon: Card1, title: "Privacy:",      text: "Your recordings and corrections are visible only to you.", width: { xs: 56, md: 97} },
-    { icon: Card2, title: "Payments:",     text: "Top-ups are handled by Apple and Google. No external links, no direct card forms.", width: { xs: 50, md: 87} },
-    { icon: Card3, title: "Support:",      text: "In-app Help & Feedback or email support@voxee.app.", width: { xs: 56, md: 97} },
-    { icon: Card4, title: "Availability:", text: "iOS and Android (Web — coming soon).", width: { xs: 53, md: 90} },
-];
+import {useTranslation} from "react-i18next";
 
 const CARD_H = { xs: "110px !important", md: "150px !important", lg: 150 };
 
 const FiveSectionComponent = () => {
+    const {t: safety} = useTranslation('common', {keyPrefix: "safety"});
+
+    const items = [
+        { icon: Card1, title: safety("items.0.title"), text: safety("items.0.text"), width: { xs: 56, md: 97} },
+        { icon: Card2, title: safety("items.1.title"), text: safety("items.1.text"), width: { xs: 50, md: 87} },
+        { icon: Card3, title: safety("items.2.title"), text: safety("items.2.text"), width: { xs: 56, md: 97} },
+        { icon: Card4, title: safety("items.3.title"), text: safety("items.3.text"), width: { xs: 53, md: 90} },
+    ];
+
     return (
         <Squircle
             cornerRadius={40}
@@ -26,7 +29,7 @@ const FiveSectionComponent = () => {
         <Box id="supportSection" className="fiveSection">
             <Container maxWidth="xl" sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '20px', padding: {xs: '26px 14px', md: '50px 20px'}}}>
                 <Typography component="h2" textAlign="center">
-                    Safe, Simple, and Accessible
+                    {safety("title")}
                 </Typography>
                 <Grid container sx={{display: 'flex', gap: {xs: '16px', md: '18px'}, justifyContent: 'space-between', alignItems: 'center', height: { xs: "auto", md: "400px", lg: "320px", xl: "auto" }}}>
                     {items.map(item => {
@@ -64,7 +67,6 @@ const FiveSectionComponent = () => {
                                 </Card>
                                 </Squircle>
                             </Grid>
-
                         )
                     })}
                 </Grid>

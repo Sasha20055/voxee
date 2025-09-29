@@ -5,9 +5,11 @@ import * as React from "react";
 import ResponsiveNav from "../HeaderComponent.jsx";
 import {Squircle} from "@squircle-js/react";
 import StarSvg from "../../assets/also/star.svg";
+import {useTranslation} from "react-i18next";
 
 
 const FirstSectionComponent = () => {
+    const {t: home} = useTranslation("common", {keyPrefix: "home"});
 
     function useKickSquircleOnMount() {
         React.useLayoutEffect(() => {
@@ -35,12 +37,12 @@ const FirstSectionComponent = () => {
         <Box id="homeSection" className="firstSection">
             <ResponsiveNav/>
             <Container maxWidth="xl" sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '20px', padding: '50px 20px'}}>
-                <Typography component="h1" sx={{textAlign: 'center', width: {xs: '100%', md: '80% '}, display: "inline-block"}}>Voxee — Learn languages by practicing  with AI
+                <Typography component="h1" sx={{textAlign: 'center', width: {xs: '100%', md: '80% '}, display: "inline-block"}}>{home("title")}
                     <SvgIcon viewBox="0 0 30 30" className="starSvg" sx={{ width: 22, height: "auto", display: "inline-block", position: "relative", top: "-50px", right: "5px" }}>
                         <image href={StarSvg} width="30" height="30" />
                     </SvgIcon>
                 </Typography>
-                <Typography component="p" sx={{textAlign: 'center', width: {xs: '100%', md: '50% '}}}>Live conversations, parallel stories, listening quizzes, and image descriptions — with AI feedback.</Typography>
+                <Typography component="p" sx={{textAlign: 'center', width: {xs: '100%', md: '50% '}}}>{home("subtitle")}</Typography>
                 <Squircle
                     cornerRadius={10}
                     cornerSmoothing={1}
@@ -50,7 +52,7 @@ const FirstSectionComponent = () => {
                     <SvgIcon viewBox="0 0 30 30" sx={{ width: 26, height: "auto", display: "block", position: "relative", top: "3px" }}>
                         <image href={CardSvg} width="30" height="30" />
                     </SvgIcon>
-                        <Typography component="span" sx={{color: 'rgba(39, 43, 55, 0.54)', position: "relative", top: "2px"}}>Start with free credits — try every exercise. No card required.</Typography>
+                        <Typography component="span" sx={{color: 'rgba(39, 43, 55, 0.54)', position: "relative", top: "2px"}}>{home("span")}</Typography>
                 </Box>
                 </Squircle>
                 <Box

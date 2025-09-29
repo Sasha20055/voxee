@@ -5,7 +5,6 @@ import * as React from "react";
 import {slides} from "../../assets/slides/imports.jsx";
 import {Squircle} from "@squircle-js/react";
 import MarkSvg from "../../assets/also/mark.svg";
-import {useEffect} from "react";
 
 const STEPS = 5;
 

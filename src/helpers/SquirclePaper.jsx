@@ -3,7 +3,6 @@ import { Squircle } from "@squircle-js/react";
 
 const SquirclePaper = React.forwardRef(
     ({ className, style, children, ...rest }, ref) => {
-        // ВАЖНО: ref висит на обычном div (его и ждёт MUI для рефлоу/анимации)
         return (
             <div ref={ref} className={className} style={{ ...style, background: "transparent", borderRadius: 0 }} {...rest}>
                 <Squircle

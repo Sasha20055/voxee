@@ -1,8 +1,11 @@
 import CustomizedAccordion from "./CustomizedAccordion.jsx";
 import { Box, Container, Typography } from "@mui/material";
 import {Squircle} from "@squircle-js/react";
+import {useTranslation} from "react-i18next";
 
 export default function SixthSectionComponent() {
+    const {t: faq} = useTranslation("common", {keyPrefix: "faq"});
+
     return (
         <Box id="faqSection" className="sixthSection section">
             <Container
@@ -13,7 +16,7 @@ export default function SixthSectionComponent() {
                     gap: "20px",
                 }}
             >
-                <Typography component="h2">FAQ</Typography>
+                <Typography component="h2">{faq("title")}</Typography>
 
                 <Box
                     className="faqRow"
@@ -35,7 +38,7 @@ export default function SixthSectionComponent() {
                     </Squircle>
 
                         <Box className="faqAccordion" sx={{ width: "100%" }}>
-                            <CustomizedAccordion />
+                            <CustomizedAccordion faq={faq}/>
                         </Box>
                 </Box>
             </Container>

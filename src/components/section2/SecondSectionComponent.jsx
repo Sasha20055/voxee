@@ -1,27 +1,30 @@
 import {Box, Container, Typography} from "@mui/material";
 
 import ParallaxLanguages from "./LanguageCarousel.jsx";
+import {useTranslation} from "react-i18next";
 
 
 const SecondSectionComponent = () => {
+    const {t: languages} = useTranslation("common", {keyPrefix: "languages"});
+
     return (
     <>
         <Box id="languagesSection" className="secondSection section">
             <Container maxWidth="xl" sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '20px', padding: '50px 20px 0 20px'}}>
                 <Box>
                     <Typography component="h2" textAlign='center'>
-                        Learn one or many languages.
+                        {languages("title1")}
                     </Typography>
                     <Typography component="h2" textAlign='center'>
-                        Voices with different accents
+                        {languages("title2")}
                     </Typography>
                 </Box>
                 <Box sx={{display: 'flex', flexWrap: 'nowrap', gap: '10px', color: '#272B37'}}>
                     <Typography component="p" sx={{color:"#272B37 !important", fontWeight: "400 !important"}}>
-                        English now
+                        {languages("subtitle1")}
                     </Typography>
                     <Typography component="p" sx={{fontWeight: "400 !important"}}>
-                        · More languages soon...
+                        {languages("subtitle2")}
                     </Typography>
                 </Box>
             </Container>

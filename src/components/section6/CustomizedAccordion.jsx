@@ -12,14 +12,7 @@ import { styled } from "@mui/material/styles";
 import ArrowIcon from "../../assets/also/arrowLang.svg";
 import ArrowIcon2 from "../../assets/also/arrowLang2.svg";
 import {Squircle} from "@squircle-js/react";
-
-const DATA = [
-    { q: "Is there a free trial period?", a: "Yes — you start with a free balance to try every exercise. No card required." },
-    { q: "How do payments work?", a: "Top-ups are handled by Apple and Google. No external links, no direct card forms." },
-    { q: "Which levels is it for?", a: "Beginner to advanced — content adapts to your level and goals." },
-    { q: "Which languages can I learn now?", a: "English, Spanish, French, German, Italian, Japanese, Korean, Portuguese, Russian, Vietnamese." },
-    { q: "How do I contact support?", a: "In-app Help & Feedback or email support@voxee.app." },
-];
+import {useEffect} from "react";
 
 const ACC_BG_BASE  = "#F6F8FB";
 const ACC_BG_OPEN  = "#F6F8FB";
@@ -63,8 +56,19 @@ const Details = styled(MuiDetails)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-export default function FaqAccordion() {
+export default function FaqAccordion({faq}) {
+    const DATA = [
+        { q: faq("items.0.q"), a: faq("items.0.a") },
+        { q: faq("items.1.q"), a: faq("items.1.a") },
+        { q: faq("items.2.q"), a: faq("items.2.a") },
+        { q: faq("items.3.q"), a: faq("items.3.a") },
+        { q: faq("items.4.q"), a: faq("items.4.a") },
+    ];
     const [expanded, setExpanded] = React.useState(DATA[0].q);
+
+    useEffect(() => {
+        setExpanded(DATA[0].q);
+    }, [faq]);
 
     const onChange = (id) => (_e, isOpen) => {
         setExpanded(isOpen ? id : null);
