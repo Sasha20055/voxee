@@ -11,6 +11,7 @@ import ptFlag from "../../assets/flags/pt.webp";
 import ruFlag from "../../assets/flags/ru.webp";
 import viFlag from "../../assets/flags/vi.webp";
 import deFlag from "../../assets/flags/de.webp";
+import jpFlag from "../../assets/flags/jp.webp";
 import {Squircle} from "@squircle-js/react";
 import MarkSvg from "../../assets/also/mark.svg"
 
@@ -26,6 +27,7 @@ const langs = [
     { code: "fr", label: "Français", flag: frFlag },
     { code: "hi", label: "हिन्दी", flag: hiFlag },
     { code: "it", label: "Italiano", flag: itFlag },
+    { code: "jp", label: "日本語", flag: jpFlag },
     { code: "ko", label: "한국어", flag: koFlag },
     { code: "pt", label: "Português", flag: ptFlag },
     { code: "ru", label: "Русский", flag: ruFlag },

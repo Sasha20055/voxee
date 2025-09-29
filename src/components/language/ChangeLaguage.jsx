@@ -19,6 +19,7 @@ import ptFlag from "../../assets/flags/pt.webp";
 import ruFlag from "../../assets/flags/ru.webp";
 import viFlag from "../../assets/flags/vi.webp";
 import deFlag from "../../assets/flags/de.webp";
+import jpFlag from "../../assets/flags/jp.webp";
 import ArrowIcon from "../../assets/also/arrowLang.svg";
 import ArrowIcon2 from "../../assets/also/arrowLang2.svg";
 
@@ -46,11 +47,11 @@ SquirclePaper.displayName = "SquirclePaper";
 
 const FLAGS = {
     en: enFlag,
-    sn: enFlag,
     es: esFlag,
     fr: frFlag,
     hi: hiFlag,
     it: itFlag,
+    jp: jpFlag,
     ko: koFlag,
     pt: ptFlag,
     ru: ruFlag,
@@ -59,12 +60,12 @@ const FLAGS = {
 };
 
 const LANGS = [
-    { code: "en", label: "EnglishEnglishEnglishEnglish" },
-    { code: "sn", label: "English" },
+    { code: "en", label: "English" },
     { code: "es", label: "Español" },
     { code: "fr", label: "Français" },
     { code: "hi", label: "हिन्दी" },
     { code: "it", label: "Italiano" },
+    { code: "jp", label: "日本語" },
     { code: "ko", label: "한국어" },
     { code: "pt", label: "Português" },
     { code: "ru", label: "Русский" },
