@@ -102,14 +102,6 @@ export default function PhoneShowcase() {
         return () => window.removeEventListener("resize", update);
     }, []);
 
-    useMotionValueEvent(placeholderBottomOpacity, "change", (v) => {
-        if (v > 0.5) {
-            console.log("Компонент виден");
-        } else {
-            console.log("Компонент скрыт");
-        }
-    });
-
     return (
         <Box
             maxWidth="xl"

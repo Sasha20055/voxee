@@ -27,10 +27,6 @@ export default function SectionLayout({ step, stepMV, frameSrc, meta, isBottom }
             "Get phrase ideas to keep the conversation flowing.",
         ];
 
-    useEffect(() => {
-        console.log(isMdUp)
-    }, [isMdUp]);
-
     return (
         <Box
             id="exercisesSection"
