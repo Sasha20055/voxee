@@ -31,9 +31,6 @@ export default function SectionLayout({ step, stepMV, frameSrc, meta, isBottom }
         console.log(isMdUp)
     }, [isMdUp]);
 
-    const PHONE_W = isMdUp ? 330 : 150;
-    const slidesRowIndex = isBottom ? STEPS - 1 : 0;
-
     return (
         <Box
             id="exercisesSection"
@@ -41,7 +38,7 @@ export default function SectionLayout({ step, stepMV, frameSrc, meta, isBottom }
                 position: "absolute",
                 ...(isBottom
                 ? { bottom: { xs: -55, md: 270 }, top: "auto" }
-                : { top: { xs: 35, md: 88 }, bottom: "auto" }),
+                : { top: { xs: 105, md: 88 }, bottom: "auto" }),
                 left: 0,
                 right: 0,
                 px: { xs: 2, md: 0 },

@@ -153,7 +153,6 @@ export default function PhoneShowcase() {
                     pointerEvents: "none",
                     zIndex: 4
                 }}
-                // плавная прозрачность
                 component={motion.div}
                 style={{ opacity: placeholderBottomOpacity }}
             >
@@ -186,6 +185,8 @@ export default function PhoneShowcase() {
                             right: 0,
                             px: { xs: 2, md: 0 },
                             display: "grid",
+                            height: { xs: "100vh", md: "auto" },
+                            placeContent: { xs: "center", md: "unset" },
                             gridTemplateColumns: { xs: "1fr", md: "7fr 5fr" },
                             alignItems: "start",
                             gap: { xs: 3, md: 6 },
