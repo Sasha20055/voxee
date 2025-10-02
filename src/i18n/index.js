@@ -1,8 +1,9 @@
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
+import enCommon from './locales/en/common.json';
 
-const resources = {};
+const resources = {en: { common: enCommon },};
 export const supportedLngs = ["en", "ru"];
 const fallbackLng = "en";
 
@@ -14,10 +15,11 @@ i18next
         fallbackLng,
         supportedLngs,
         ns: ["common"],
+        nonExplicitSupportedLngs: true,
         defaultNS: "common",
         interpolation: { escapeValue: false },
         react: {
-            useSuspense: false,
+            useSuspense: true,
             bindI18n: "languageChanged",
             bindI18nStore: "added",
         },

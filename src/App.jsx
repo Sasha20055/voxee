@@ -3,10 +3,14 @@ import FirstSectionComponent from "./components/section1/FirstSectionComponent.j
 import SecondSectionComponent from "./components/section2/SecondSectionComponent.jsx";
 import ThirdSectionComponent from "./components/section3/ThirdSectionComponent.jsx";
 
-import ShowcaseSection from "./components/section4/FouthSectionComponent.jsx";
 import FiveSectionComponent from "./components/section5/FiveSectionComponent.jsx";
 import SixthSectionComponent from "./components/section6/SixthSectionComponent.jsx";
 import FooterSectionComponent from "./components/FooterSectionComponent/FooterSectionComponent.jsx";
+import {lazy, Suspense} from "react";
+
+const ShowcaseSection = lazy(() => import("./components/section4/FouthSectionComponent.jsx"));
+
+
 
 function App() {
   return (
@@ -14,7 +18,9 @@ function App() {
           <FirstSectionComponent/>
           <SecondSectionComponent/>
           <ThirdSectionComponent/>
-          <ShowcaseSection/>
+          <Suspense fallback={null}>
+              <ShowcaseSection/>
+          </Suspense>
           <FiveSectionComponent/>
           <SixthSectionComponent/>
           <FooterSectionComponent/>
