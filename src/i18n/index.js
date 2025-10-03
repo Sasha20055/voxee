@@ -4,7 +4,7 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import enCommon from './locales/en/common.json';
 
 const resources = {en: { common: enCommon },};
-export const supportedLngs = ["en", "ru"];
+export const supportedLngs = ["en", "ru", "de", "es", "fr", "hi", "it", "ja", "ko", "pt", "vi", "tr"];
 const fallbackLng = "en";
 
 i18next

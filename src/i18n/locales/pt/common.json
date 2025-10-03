@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "title": "Voxee — Aprenda línguas praticando com IA",
+    "description": "Fale, ouça e melhore rapidamente com IA. Diálogos de voz em direto, histórias, questionários e correções instantâneas — no iOS e no Android. Créditos gratuitos, sem cartão de crédito."
+  },
+  "nav": {
+    "home": "Início",
+    "languages": "Línguas",
+    "whyVoxee": "Porque a Voxee",
+    "exercises": "Exercícios",
+    "support": "Suporte e Segurança"
+  },
+  "home": {
+    "title": "Voxee — Aprenda línguas praticando com IA",
+    "subtitle": "Conversas em direto, histórias paralelas, questionários de compreensão oral e descrições de imagens — com feedback da IA.",
+    "span": "Comece com créditos gratuitos — experimente todos os exercícios. Não é necessário cartão de crédito."
+  },
+  "languages": {
+    "title1": "Aprenda uma ou várias línguas.",
+    "title2": "Vozes com diferentes sotaques",
+    "subtitle1": "Inglês disponível",
+    "subtitle2": "· Mais línguas em breve..."
+  },
+  "whyVoxee": {
+    "title": "Porque a Voxee",
+    "cards": [
+      {
+        "title": "Exercícios que funcionam mesmo",
+        "text": "Exercícios interessantes e originais ajudam-no a melhorar a expressão oral, a compreensão auditiva e o vocabulário para o dia a dia."
+      },
+      {
+        "title": "Assente em IA avançada",
+        "text": "Usamos IA poderosa e de última geração para vozes naturais e ajuda inteligente — como um tutor, a qualquer momento."
+      },
+      {
+        "title": "Feedback claro e dicas inteligentes",
+        "text": "Receba correções rápidas com explicações simples — além de dicas que ajudam a continuar a praticar."
+      }
+    ]
+  },
+  "showcase": {
+    "titleByStep": [
+      "Prática de diálogo",
+      "Histórias paralelas",
+      "Perguntar e responder",
+      "Aprender a descrever",
+      "Prática de escuta"
+    ],
+    "bulletsByStep": [
+      [
+        "Escolha um cenário — ou invente o seu (por exemplo, um voo de dragão).",
+        "Personalize: defina papéis, objetivos e instruções extra.",
+        "Correções instantâneas com explicações claras (na sua língua).",
+        "Receba ideias de frases para manter a conversa a fluir."
+      ],
+      [
+        "Use histórias prontas.",
+        "Gere as suas a partir de um prompt. Controle o comprimento e o nível.",
+        "Visualização paralela: língua-alvo em cima, tradução em baixo. Mostre ou oculte."
+      ],
+      [
+        "Aprenda a fazer perguntas.",
+        "Pergunte por voz — receba feedback instantâneo.",
+        "Versão corrigida + versão mais natural, com explicações na sua língua.",
+        "Agora responda por voz — receba o mesmo feedback claro."
+      ],
+      [
+        "Construa vocabulário e discurso articulado — descreva a imagem.",
+        "Precisa de ideias? Toque nas dicas inteligentes para detalhes.",
+        "Diga a sua descrição — obtenha precisão, correções instantâneas e explicações na sua língua.",
+        "Revise os seus erros — abra cada correção para ver a regra e exemplos.",
+        "Aprenda a versão mais natural e soe fluente."
+      ],
+      [
+        "Ouça histórias, diálogos e monólogos — escolha o sotaque do locutor e o nível.",
+        "Tipos de questionário: escolha de imagem, verdadeiro/falso, resposta curta.",
+        "Responda e receba feedback instantâneo — desenvolva rapidamente a compreensão auditiva."
+      ]
+    ]
+  },
+  "safety": {
+    "title": "Seguro, simples e acessível",
+    "items": [
+      {
+        "title": "Privacidade:",
+        "text": "As suas gravações e correções são visíveis apenas para si."
+      },
+      {
+        "title": "Pagamentos:",
+        "text": "Os carregamentos são tratados pela Apple e pela Google. Sem links externos, sem formulários diretos de cartão."
+      },
+      {
+        "title": "Suporte:",
+        "text": "Ajuda e feedback na aplicação ou email para voxee-support@evermintlabs.com."
+      },
+      {
+        "title": "Disponibilidade:",
+        "text": "iOS e Android (Web — em breve)."
+      }
+    ]
+  },
+  "faq": {
+    "title": "FAQ",
+    "items": [
+      {
+        "q": "Existe um período de teste gratuito?",
+        "a": "Sim — começa com um saldo gratuito para experimentar todos os exercícios. Não é necessário cartão de crédito."
+      },
+      {
+        "q": "Como funcionam os pagamentos?",
+        "a": "As compras são processadas pela Apple e pela Google (na aplicação). Nunca recolhemos os dados do seu cartão nem o enviamos para sites externos."
+      },
+      {
+        "q": "Para que níveis serve?",
+        "a": "Do iniciante ao avançado — o conteúdo adapta-se ao seu nível e objetivos."
+      },
+      {
+        "q": "Que línguas posso aprender agora?",
+        "a": "De momento, apenas inglês — em breve: espanhol, francês, alemão, italiano, japonês, coreano, português, russo e vietnamita."
+      },
+      {
+        "q": "Como contacto o suporte?",
+        "a": "Use a Ajuda & Feedback na aplicação ou envie-nos um email para voxee-support@evermintlabs.com."
+      }
+    ],
+    "expand": "Expandir",
+    "collapse": "Recolher"
+  },
+  "footer": {
+    "home": "Início",
+    "languages": "Línguas",
+    "whyVoxee": "Porque a Voxee",
+    "exercises": "Exercícios",
+    "support": "Suporte e Segurança",
+    "termsOfUse": "Termos de Utilização",
+    "privacyPolicy": "Política de Privacidade"
+  }
+}

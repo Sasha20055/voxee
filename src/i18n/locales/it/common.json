@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "title": "Voxee — Impara le lingue praticando con l'IA",
+    "description": "Parla, ascolta e migliora in fretta con l'IA. Dialoghi vocali dal vivo, storie, quiz e correzioni istantanee — su iOS e Android. Crediti gratuiti, nessuna carta richiesta."
+  },
+  "nav": {
+    "home": "Home",
+    "languages": "Lingue",
+    "whyVoxee": "Perché Voxee",
+    "exercises": "Esercizi",
+    "support": "Assistenza e sicurezza"
+  },
+  "home": {
+    "title": "Voxee — Impara le lingue praticando con l'IA",
+    "subtitle": "Conversazioni dal vivo, storie parallele, quiz di ascolto e descrizioni di immagini — con feedback dell'IA.",
+    "span": "Inizia con crediti gratuiti — prova ogni esercizio. Nessuna carta richiesta."
+  },
+  "languages": {
+    "title1": "Impara una o più lingue.",
+    "title2": "Voci con accenti diversi",
+    "subtitle1": "Solo inglese, per ora",
+    "subtitle2": "· Altre lingue in arrivo..."
+  },
+  "whyVoxee": {
+    "title": "Perché Voxee",
+    "cards": [
+      {
+        "title": "Esercizi che funzionano davvero",
+        "text": "Esercizi interessanti e originali ti aiutano a migliorare parlato, ascolto e vocabolario per la vita di tutti i giorni."
+      },
+      {
+        "title": "Basato su un'IA avanzata",
+        "text": "Usiamo un'IA potente e all'avanguardia per voci naturali e un aiuto intelligente — come un tutor, in qualsiasi momento."
+      },
+      {
+        "title": "Feedback chiaro e suggerimenti intelligenti",
+        "text": "Ricevi correzioni rapide con spiegazioni semplici — più suggerimenti che ti aiutano a continuare la pratica."
+      }
+    ]
+  },
+  "showcase": {
+    "titleByStep": [
+      "Pratica di dialogo",
+      "Storie parallele",
+      "Chiedi e rispondi",
+      "Impara a descrivere",
+      "Pratica di ascolto"
+    ],
+    "bulletsByStep": [
+      [
+        "Scegli uno scenario — oppure inventane uno tu (per esempio, un volo su un drago).",
+        "Personalizzalo: imposta ruoli, obiettivi e istruzioni aggiuntive.",
+        "Correzioni istantanee con spiegazioni chiare (nella tua lingua).",
+        "Suggerimenti di frasi per mantenere scorrevole la conversazione."
+      ],
+      [
+        "Usa storie già pronte.",
+        "Genera le tue a partire da un prompt. Decidi tu lunghezza e livello.",
+        "Vista parallela: lingua obiettivo in alto, traduzione in basso. Nascondi o mostra."
+      ],
+      [
+        "Impara a fare domande.",
+        "Chiedi a voce — ottieni un feedback immediato.",
+        "Versione corretta + versione più naturale, con spiegazioni nella tua lingua.",
+        "Ora rispondi a voce — ricevi lo stesso feedback chiaro."
+      ],
+      [
+        "Amplia il lessico e la parlata fluente — descrivi l'immagine.",
+        "Ti servono idee? Tocca i suggerimenti intelligenti per i dettagli.",
+        "Pronuncia la tua descrizione — ottieni una valutazione di accuratezza, correzioni istantanee e spiegazioni nella tua lingua.",
+        "Rivedi gli errori — apri ogni correzione per vedere la regola e gli esempi.",
+        "Impara la versione più naturale e suona più fluente."
+      ],
+      [
+        "Ascolta storie, dialoghi e monologhi — scegli accento del parlante e livello.",
+        "Tipi di quiz: scelta dell'immagine, vero/falso, risposta breve.",
+        "Rispondi e ricevi feedback immediato — migliora rapidamente la comprensione orale."
+      ]
+    ]
+  },
+  "safety": {
+    "title": "Sicuro, semplice e accessibile",
+    "items": [
+      {
+        "title": "Privacy:",
+        "text": "Le tue registrazioni e correzioni sono visibili solo a te."
+      },
+      {
+        "title": "Pagamenti:",
+        "text": "Le ricariche sono gestite da Apple e Google. Nessun link esterno, nessun modulo per l'inserimento diretto della carta."
+      },
+      {
+        "title": "Assistenza:",
+        "text": "Assistenza in-app (Help & Feedback) oppure via email a voxee-support@evermintlabs.com."
+      },
+      {
+        "title": "Disponibilità:",
+        "text": "iOS e Android (Web — in arrivo)."
+      }
+    ]
+  },
+  "faq": {
+    "title": "FAQ",
+    "items": [
+      {
+        "q": "È prevista una prova gratuita?",
+        "a": "Sì — inizi con un saldo gratuito per provare ogni esercizio. Non è richiesta la carta."
+      },
+      {
+        "q": "Come funzionano i pagamenti?",
+        "a": "Gli acquisti sono elaborati da Apple e Google (in-app). Non raccogliamo i dati della tua carta né ti inviamo a siti esterni."
+      },
+      {
+        "q": "Per quali livelli è pensato?",
+        "a": "Dal principiante all'avanzato — i contenuti si adattano al tuo livello e ai tuoi obiettivi."
+      },
+      {
+        "q": "Quali lingue posso imparare adesso?",
+        "a": "Al momento solo inglese — presto in arrivo spagnolo, francese, tedesco, italiano, giapponese, coreano, portoghese, russo e vietnamita."
+      },
+      {
+        "q": "Come posso contattare l'assistenza?",
+        "a": "Usa Help & Feedback nell'app oppure scrivici a voxee-support@evermintlabs.com."
+      }
+    ],
+    "expand": "Espandi",
+    "collapse": "Comprimi"
+  },
+  "footer": {
+    "home": "Home",
+    "languages": "Lingue",
+    "whyVoxee": "Perché Voxee",
+    "exercises": "Esercizi",
+    "support": "Assistenza e sicurezza",
+    "termsOfUse": "Termini di utilizzo",
+    "privacyPolicy": "Informativa sulla privacy"
+  }
+}

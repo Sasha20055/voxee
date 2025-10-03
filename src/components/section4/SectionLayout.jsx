@@ -5,26 +5,28 @@ import * as React from "react";
 import {slides} from "../../assets/slides/imports.jsx";
 import {Squircle} from "@squircle-js/react";
 import MarkSvg from "../../assets/also/mark.svg";
+import {useTranslation} from "react-i18next";
 
 const STEPS = 5;
 
 
 export default function SectionLayout({ step, stepMV, frameSrc, meta, isBottom }) {
     const theme = useTheme();
+    const {t: showcase} = useTranslation("common", {keyPrefix: "showcase"});
     const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
 
+    const bulletsByStep = React.useMemo(
+        () => showcase("bulletsByStep", { returnObjects: true }) ?? [],
+        [showcase]
+    );
+
+    function getBullets(step) {
+        return Array.isArray(bulletsByStep?.[step]) ? bulletsByStep[step] : [];
+    }
+
     const items = isBottom
-        ? [
-            "Listen to stories, dialogues, and monologues — choose speaker accent and level.",
-            "Quiz types: image choice, true/false, short answer.",
-            "Answer and get instant feedback — build listening comprehension fast.",
-        ]
-        : [
-            "Choose a scenario — or invent your own (say, a dragon flight).",
-            "Make it yours: set roles, goals, and extra instructions.",
-            "Instant corrections with clear explanations (in your language).",
-            "Get phrase ideas to keep the conversation flowing.",
-        ];
+        ? getBullets(4)
+        : getBullets(0)
 
     return (
         <Box
@@ -59,13 +61,7 @@ export default function SectionLayout({ step, stepMV, frameSrc, meta, isBottom }
                         <Typography
                             component="h2"
                         >
-                            {[
-                                "Dialogue Practice",
-                                "Parallel Stories",
-                                "Ask & Answer",
-                                "Learn to Describe",
-                                "Listening Practice",
-                            ][step]}
+                            {showcase(`titleByStep.${isBottom ? 4 : 0}`)}
                         </Typography>
                     </motion.h2>
 
