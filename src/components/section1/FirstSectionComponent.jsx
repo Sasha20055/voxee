@@ -43,18 +43,12 @@ const FirstSectionComponent = () => {
                     </SvgIcon>
                 </Typography>
                 <Typography component="p" sx={{textAlign: 'center', width: {xs: '100%', md: '50% '}}}>{home("subtitle")}</Typography>
-                <Squircle
-                    cornerRadius={10}
-                    cornerSmoothing={1}
-                    style={{ width: 'auto', height: 'auto', padding: '5px 10px', border: '1.5px solid rgba(39, 43, 55, 0.54)', textAlign: "center"}}
-                >
-                <Box sx={{display: 'inline-flex', margin: 0, justifyContent: 'center', alignItems: 'center', gap: '10px'}}>
+                <Box sx={{width: 'auto', height: 'auto', padding: '5px 10px 10px 10px', border: '1.5px solid rgba(39, 43, 55, 0.54)', textAlign: "center", display: 'inline-flex', margin: 0, justifyContent: 'center', alignItems: 'center', gap: '10px', borderRadius: "10px"}}>
                     <SvgIcon viewBox="0 0 30 30" sx={{ width: 26, height: "auto", display: "block", position: "relative", top: "3px" }}>
                         <image href={CardSvg} width="30" height="30" />
                     </SvgIcon>
                         <Typography component="span" sx={{color: 'rgba(39, 43, 55, 0.54)', position: "relative", top: "2px"}}>{home("span")}</Typography>
                 </Box>
-                </Squircle>
                 <Box
                     sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '5px', flexWrap: 'nowrap'}}>
                     <a href="https://www.apple.com/app-store/" target="_blank" className="appStoreSvg"/>

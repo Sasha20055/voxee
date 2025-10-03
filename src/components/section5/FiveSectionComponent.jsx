@@ -7,7 +7,7 @@ import * as React from "react";
 import {Squircle} from "@squircle-js/react";
 import {useTranslation} from "react-i18next";
 
-const CARD_H = { xs: "110px !important", md: "150px !important", lg: 150 };
+const CARD_H = { xs: "130px !important", md: "150px !important", lg: 150 };
 
 const FiveSectionComponent = () => {
     const {t: safety} = useTranslation('common', {keyPrefix: "safety"});
@@ -31,7 +31,7 @@ const FiveSectionComponent = () => {
                 <Typography component="h2" textAlign="center">
                     {safety("title")}
                 </Typography>
-                <Grid container sx={{display: 'flex', gap: {xs: '16px', md: '18px'}, justifyContent: 'space-between', alignItems: 'center', height: { xs: "auto", md: "400px", lg: "320px", xl: "auto" }}}>
+                <Grid container sx={{display: 'flex', gap: {xs: '16px', md: '18px'}, justifyContent: 'space-between', alignItems: 'center', height: { xs: "auto", md: "400px", lg: "350px", xl: "auto" }}}>
                     {items.map(item => {
                         return (
 
