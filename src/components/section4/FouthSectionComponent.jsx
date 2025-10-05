@@ -2,7 +2,7 @@ import * as React from "react";
 import { createPortal } from "react-dom";
 import {Box, Container, SvgIcon, Typography, useMediaQuery, useTheme} from "@mui/material";
 import {motion, useScroll, useTransform, useMotionValueEvent, useMotionValue, animate} from "framer-motion";
-import {useEffect, useRef} from "react";
+import {useRef} from "react";
 import FramePng from "../../assets/also/mocap.png";
 import SectionLayout from "./SectionLayout.jsx";
 import {slides} from "../../assets/slides/imports.jsx";
@@ -25,12 +25,10 @@ export default function PhoneShowcase() {
     const theme = useTheme();
     const isMdUp = useMediaQuery(theme.breakpoints.up("md")) && isTall;
     const isSmUp = useMediaQuery(theme.breakpoints.down("sm")) ;
+    const isShortest = useMediaQuery('(max-height: 800px)') && isSmUp;
 
+    const placeContent = isMdUp ? "unset" : isShortest ? "unset" : isSmUp ? "center" : "unset";
     const phoneWidth = isMdUp ? 330 : isSmUp ? 150 : isShort ? 200 : 150;
-
-    useEffect(() => {
-        console.log(phoneWidth)
-    }, [phoneWidth]);
 
     const wrapRef = useRef(null);
 
@@ -193,7 +191,7 @@ export default function PhoneShowcase() {
                             px: { xs: 2, md: 0 },
                             display: "grid",
                             height: { xs: "100vh", md: "auto" },
-                            placeContent: { xs: "center", md: "unset" },
+                            placeContent: placeContent,
                             gridTemplateColumns: { xs: "1fr", md: "7fr 5fr" },
                             alignItems: "start",
                             gap: { xs: 3, md: 6 },
