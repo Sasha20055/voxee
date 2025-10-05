@@ -2,7 +2,7 @@ import * as React from "react";
 import { createPortal } from "react-dom";
 import {Box, Container, SvgIcon, Typography, useMediaQuery, useTheme} from "@mui/material";
 import {motion, useScroll, useTransform, useMotionValueEvent, useMotionValue, animate} from "framer-motion";
-import {useRef} from "react";
+import {useEffect, useRef} from "react";
 import FramePng from "../../assets/also/mocap.png";
 import SectionLayout from "./SectionLayout.jsx";
 import {slides} from "../../assets/slides/imports.jsx";
@@ -19,9 +19,18 @@ const VIS_THRESH = 0.01;
 
 export default function PhoneShowcase() {
     const {t: showcase} = useTranslation("common", {keyPrefix: "showcase"});
+    const isShort = useMediaQuery('(max-height: 899px)');
+    const isTall  = useMediaQuery('(min-height: 900px)');
 
     const theme = useTheme();
-    const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
+    const isMdUp = useMediaQuery(theme.breakpoints.up("md")) && isTall;
+    const isSmUp = useMediaQuery(theme.breakpoints.down("sm")) ;
+
+    const phoneWidth = isMdUp ? 330 : isSmUp ? 150 : isShort ? 200 : 150;
+
+    useEffect(() => {
+        console.log(phoneWidth)
+    }, [phoneWidth]);
 
     const wrapRef = useRef(null);
 
@@ -106,6 +115,7 @@ export default function PhoneShowcase() {
         return () => window.removeEventListener("resize", update);
     }, []);
 
+
     return (
         <Box
             maxWidth="xl"
@@ -135,6 +145,7 @@ export default function PhoneShowcase() {
             >
                 <SectionLayout
                     step={0}
+                    isMdUp={isMdUp}
                     stepMV={stepMVStatic}
                     frameSrc={FramePng}
                     meta={IPHONE_15_PRO}
@@ -269,8 +280,10 @@ export default function PhoneShowcase() {
                                 <Phone
                                     stepMV={stepMV}
                                     col="0"
-                                    width={isMdUp ? 330 : 150}
+                                    width={phoneWidth}
+                                    isSmUp={isSmUp}
                                     isMdUp={isMdUp}
+                                    isShort={isShort}
                                     frameSrc={FramePng}
                                     meta={IPHONE_15_PRO}
                                     steps={STEPS}
@@ -292,8 +305,10 @@ export default function PhoneShowcase() {
                                 <Phone
                                     stepMV={stepMV}
                                     col="1"
-                                    width={isMdUp ? 330 : 150}
+                                    width={phoneWidth}
                                     isMdUp={isMdUp}
+                                    isSmUp={isSmUp}
+                                    isShort={isShort}
                                     frameSrc={FramePng}
                                     meta={IPHONE_15_PRO}
                                     steps={STEPS}
@@ -315,8 +330,10 @@ export default function PhoneShowcase() {
                                 <Phone
                                     stepMV={stepMV}
                                     col="2"
-                                    width={isMdUp ? 330 : 150}
+                                    width={phoneWidth}
                                     isMdUp={isMdUp}
+                                    isSmUp={isSmUp}
+                                    isShort={isShort}
                                     frameSrc={FramePng}
                                     meta={IPHONE_15_PRO}
                                     steps={STEPS}
@@ -336,7 +353,7 @@ const IPHONE_15_PRO = {
     w: 1290,
         h: 2640,
         inset: { top: 140, right: 90, bottom: 160, left: 90 },
-    radius: 30,
+    radius: 40,
 };
 
 export function Phone({
@@ -348,21 +365,25 @@ export function Phone({
                           steps,
                           screenSrcBuilder,
                           isMdUp,
+    isSmUp, isShort
                       }) {
     const k = width / meta.w;
     const height = meta.h * k;
 
     const screenLeft   = meta.inset.left   * k - (isMdUp ? 10 : 5);
     const screenRight  = meta.inset.right  * k;
-    const screenTop    = meta.inset.top    * k - (isMdUp ? 28 : 13);
+    const screenTop    = meta.inset.top    * k - (isMdUp ? 28 : isSmUp ? 13 : isShort ? 17 : 13);
     const screenBottom = meta.inset.bottom * k;
 
     const screenW = width  - screenLeft - screenRight + (isMdUp ? 12 : 5);
-    const screenH = height - screenTop  - screenBottom + (isMdUp ? 35 : 15);
+    const screenH = height - screenTop  - screenBottom + (isMdUp ? 35 : isSmUp ? 15 : isShort ? 25 : 15);
     const radius  = (meta.radius ?? 0) * k;
 
+    const W = isMdUp ? 310 : isSmUp ? 140 : isShort ? 190 : 1400;
+    const H = isMdUp ? 660 : isSmUp ? 300 : isShort ? 410 : 300;
+    /*
     const W = isMdUp ? 310 : 140;
-    const H = isMdUp ? 660 : 300;
+    const H = isMdUp ? 660 : 300;*/
 
     const tMV = useTransform(stepMV, (v) => {
         const clamped = Math.max(0, Math.min(steps - 1, v));

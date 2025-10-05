@@ -10,10 +10,14 @@ import {useTranslation} from "react-i18next";
 const STEPS = 5;
 
 
-export default function SectionLayout({ step, stepMV, frameSrc, meta, isBottom }) {
+export default function SectionLayout({ step, stepMV, frameSrc, meta, isBottom}) {
     const theme = useTheme();
     const {t: showcase} = useTranslation("common", {keyPrefix: "showcase"});
-    const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
+    const isTall  = useMediaQuery('(min-height: 900px)');
+    const isMdUp = useMediaQuery(theme.breakpoints.up("md")) && isTall;
+    const isSmUp = useMediaQuery(theme.breakpoints.down("sm"));
+    const isShort = useMediaQuery('(max-height: 899px)');
+    const phoneWidth = isMdUp ? 330 : isSmUp ? 150 : isShort ? 200 : 150;
 
     const bulletsByStep = React.useMemo(
         () => showcase("bulletsByStep", { returnObjects: true }) ?? [],
@@ -125,8 +129,10 @@ export default function SectionLayout({ step, stepMV, frameSrc, meta, isBottom }
                     <Phone
                         stepMV={stepMV}
                         col="0"
-                        width={isMdUp ? 330 : 150}
+                        width={phoneWidth}
+                        isSmUp={isSmUp}
                         isMdUp={isMdUp}
+                        isShort={isShort}
                         frameSrc={frameSrc}
                         meta={meta}
                         steps={STEPS}
@@ -148,8 +154,10 @@ export default function SectionLayout({ step, stepMV, frameSrc, meta, isBottom }
                     <Phone
                         stepMV={stepMV}
                         col="1"
-                        width={isMdUp ? 330 : 150}
+                        width={phoneWidth}
+                        isSmUp={isSmUp}
                         isMdUp={isMdUp}
+                        isShort={isShort}
                         frameSrc={frameSrc}
                         meta={meta}
                         steps={STEPS}
@@ -171,8 +179,10 @@ export default function SectionLayout({ step, stepMV, frameSrc, meta, isBottom }
                     <Phone
                         stepMV={stepMV}
                         col="2"
-                        width={isMdUp ? 330 : 150}
+                        width={phoneWidth}
+                        isSmUp={isSmUp}
                         isMdUp={isMdUp}
+                        isShort={isShort}
                         frameSrc={frameSrc}
                         meta={meta}
                         steps={STEPS}

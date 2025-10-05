@@ -441,6 +441,12 @@ main.page-root {
   }
 }
 
+@media screen and (max-height: 900px){
+  .sqlFouthSection {
+    padding: 30px 60px 30px 30px;
+  }
+}
+
 @media screen and (max-width: 900px){
   .sqlFouthSection {
     padding: 20px 30px;
