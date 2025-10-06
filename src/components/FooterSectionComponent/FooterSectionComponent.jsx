@@ -187,7 +187,7 @@ export default function Footer() {
                                         <MuiLink
                                             component="button"
                                             type="button"
-                                            onClick={() => window.open("/terms.html")}
+                                            onClick={() => window.open("/terms.html", "_blank")}
                                             sx={{
                                                 cursor: "pointer",
                                                 "&:hover ._label": {
@@ -208,7 +208,7 @@ export default function Footer() {
                                         <MuiLink
                                             component="button"
                                             type="button"
-                                            onClick={() => window.open("/privacy.html")}
+                                            onClick={() => window.open("/privacy.html", "_blank")}
                                             sx={{
                                                 cursor: "pointer",
                                                 "&:hover ._label": {
