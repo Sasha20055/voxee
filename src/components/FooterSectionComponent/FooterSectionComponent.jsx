@@ -184,11 +184,12 @@ export default function Footer() {
                                             },
                                         }}
                                     >
-                                        <MuiLink
-                                            component="button"
+                                        <a
                                             type="button"
-                                            onClick={() => window.open("/terms.html", "_blank")}
-                                            sx={{
+                                            href="terms.html"
+                                            target="_blank"
+                                            rel="noopener"
+                                            style={{
                                                 cursor: "pointer",
                                                 "&:hover ._label": {
                                                     textShadow: `
@@ -204,12 +205,13 @@ export default function Footer() {
                       <span className="_label">
                         <Typography component="span">{footer("termsOfUse")}</Typography>
                       </span>
-                                        </MuiLink>
-                                        <MuiLink
-                                            component="button"
+                                        </a>
+                                        <a
                                             type="button"
-                                            onClick={() => window.open("/privacy.html", "_blank")}
-                                            sx={{
+                                            href="privacy.html"
+                                            target="_blank"
+                                            rel="noopener"
+                                            style={{
                                                 cursor: "pointer",
                                                 "&:hover ._label": {
                                                     textShadow: `
@@ -227,7 +229,7 @@ export default function Footer() {
                           {footer("privacyPolicy")}
                         </Typography>
                       </span>
-                                        </MuiLink>
+                                        </a>
                                     </Stack>
                                 </Grid>
                             </Grid>
