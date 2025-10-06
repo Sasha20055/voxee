@@ -12,6 +12,7 @@ import {
 import LogoSvg from "../../assets/logo.svg";
 import {Squircle} from "@squircle-js/react";
 import {useTranslation} from "react-i18next";
+import './Footer.css';
 
 
 const NAV_KEYS = ["languages", "whyVoxee", "exercises", "support", "faq"];
@@ -189,18 +190,7 @@ export default function Footer() {
                                             href="terms.html"
                                             target="_blank"
                                             rel="noopener"
-                                            style={{
-                                                cursor: "pointer",
-                                                "&:hover ._label": {
-                                                    textShadow: `
-                            0  0.015em 0 currentColor,
-                            0 -0.015em 0 currentColor,
-                            0.015em 0 0 currentColor,
-                           -0.015em 0 0 currentColor
-                          `,
-                                                },
-                                                "& ._label": { transition: "text-shadow .2s ease" },
-                                            }}
+                                            className="polink"
                                         >
                       <span className="_label">
                         <Typography component="span">{footer("termsOfUse")}</Typography>
@@ -211,18 +201,7 @@ export default function Footer() {
                                             href="privacy.html"
                                             target="_blank"
                                             rel="noopener"
-                                            style={{
-                                                cursor: "pointer",
-                                                "&:hover ._label": {
-                                                    textShadow: `
-                            0  0.015em 0 currentColor,
-                            0 -0.015em 0 currentColor,
-                            0.015em 0 0 currentColor,
-                           -0.015em 0 0 currentColor
-                          `,
-                                                },
-                                                "& ._label": { transition: "text-shadow .2s ease" },
-                                            }}
+                                            className="polink"
                                         >
                       <span className="_label">
                         <Typography component="span" sx={{ fontSize: { xs: "12px", md: "14px" } }}>

@@ -1,0 +1,13 @@
+.polink {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+}
+.polink ._label { transition: text-shadow .2s ease; }
+.polink:hover ._label {
+    text-shadow:
+            0  0.015em 0 currentColor,
+            0 -0.015em 0 currentColor,
+            0.015em 0 0 currentColor,
+            -0.015em 0 0 currentColor;
+}
