@@ -27,11 +27,11 @@
     "cards": [
       {
         "title": "Exercises That Really Work",
-        "text": "Interesting, well-designed exercises help you improve speaking, listening, and vocabulary for everyday life."
+        "text": "Interesting, original exercises help you improve speaking, listening, and vocabulary for everyday life."
       },
       {
         "title": "Powered by Advanced AI",
-        "text": "We use powerful, leading-edge AI for natural voices and smart help — like a tutor, anytime."
+        "text": "We use powerful, bleeding-edge AI for natural voices and smart help — like a tutor, anytime."
       },
       {
         "title": "Clear Feedback & Smart Hints",
@@ -50,14 +50,14 @@
     "bulletsByStep": [
       [
         "Choose a scenario — or invent your own (say, a dragon flight).",
-        "Make it yours: set roles, goals, and extra instructions.",
+        "Make it your own: set roles, goals, and extra instructions.",
         "Instant corrections with clear explanations (in your language).",
         "Get phrase ideas to keep the conversation flowing."
       ],
       [
-        "Use ready stories.",
-        "Generate your own from a prompt. You control length & level.",
-        "Parallel view: target on top, native below. Hide or reveal."
+        "Use ready-made stories.",
+        "Generate your own from a prompt. You control the length and level.",
+        "Parallel view: target language on top, translation on the bottom. Hide or reveal."
       ],
       [
         "Learn to ask questions.",
@@ -90,7 +90,7 @@
       },
       {
         "title": "Support:",
-        "text": "In-app Help & Feedback or email support@voxee.app."
+        "text": "In-app Help & Feedback or email voxee-support@evermintlabs.com."
       },
       {
         "title": "Availability:",
@@ -102,32 +102,30 @@
     "title": "FAQ",
     "items": [
       {
-        "q": "Is there a free trial period?",
-        "a": "Yes — you start with a free balance to try every exercise. No card required."
+        "q": "Is there a free trial?",
+        "a": "Yes — you start with a free balance to try every exercise. No credit card required."
       },
       {
         "q": "How do payments work?",
-        "a": "Top-ups are handled by Apple and Google. No external links, no direct card forms."
+        "a": "Purchases are processed by Apple and Google (in-app). We never collect your card details or send you to external websites."
       },
       {
-        "q": "Which levels is it for?",
-        "a": "Beginner to advanced — content adapts to your level and goals."
+        "q": "What levels is it for?",
+        "a": "Beginner through advanced — the content adapts to your level and goals."
       },
       {
         "q": "Which languages can I learn now?",
-        "a": "English, Spanish, French, German, Italian, Japanese, Korean, Portuguese, Russian, Vietnamese."
-      },
+        "a": "Currently, English only — Spanish, French, German, Italian, Japanese, Korean, Portuguese, Russian, and Vietnamese are coming soon."      },
       {
         "q": "How do I contact support?",
-        "a": "In-app Help & Feedback or email support@voxee.app."
+        "a": "Use in-app Help & Feedback or email us at voxee-support@evermintlabs.com."
       }
-    ],
+      ],
     "expand": "Expand",
     "collapse": "Collapse"
   },
   "footer": {
     "home": "Home",
-    "faq": "FAQ",
     "languages": "Languages",
     "whyVoxee": "Why Voxee",
     "exercises": "Exercises",
