@@ -51,8 +51,8 @@ const FirstSectionComponent = () => {
                 </Box>
                 <Box
                     sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '5px', flexWrap: 'nowrap'}}>
-                    <a href="https://www.apple.com/app-store/" target="_blank" className="appStoreSvg"/>
-                    <a href="https://play.google.com/" target="_blank" className="googlePlaySvg"/>
+                    <a href="https://apps.apple.com/app/id6754035630" target="_blank" className="appStoreSvg"/>
+                    <a href="https://play.google.com/store/apps/details?id=com.evermintlabs.voxee" target="_blank" className="googlePlaySvg"/>
                 </Box>
                 <Box className="firstPreviewImg"/>
             </Container>

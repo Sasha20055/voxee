@@ -139,8 +139,8 @@ export default function Footer() {
                                             left: { xs: "-10px", md: "0" },
                                         }}
                                     >
-                                        <a href="https://play.google.com/" target="_blank" rel="noreferrer" className="googlePlaySvg footer" />
-                                        <a href="https://www.apple.com/app-store/" target="_blank" rel="noreferrer" className="appStoreSvg footer" />
+                                        <a href="https://play.google.com/store/apps/details?id=com.evermintlabs.voxee" target="_blank" rel="noreferrer" className="googlePlaySvg footer" />
+                                        <a href="https://apps.apple.com/app/id6754035630" target="_blank" rel="noreferrer" className="appStoreSvg footer" />
                                     </Box>
                                 </Grid>
                             </Grid>
